@@ -1,0 +1,42 @@
+{
+  "struck.sol": {
+    "__sources__": {
+      "struck.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract StudentData {\r\n     \r\n    struct Student {\r\n        string name;\r\n        uint age;\r\n    }\r\n\r\n    Student public s1;\r\n\r\n    function setStudent(string memory _name,uint _age) public {\r\n    s1=Student(_name,_age);\r\n    }\r\n}\r\n",
+        "file": "struck.sol"
+      }
+    }
+  },
+  "Solidity.sol": {
+    "__sources__": {
+      "Solidity.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CourseEnrollment {\r\n\r\n    address public owner;\r\n    uint public totalCourses;\r\n\r\n    struct Course {\r\n        string name;\r\n        uint enrolledCount;\r\n    }\r\n\r\n    mapping(uint => Course) public courses;\r\n    mapping(address => mapping(uint => bool)) public enrolled;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function addCourse(uint _id, string memory _name) public {\r\n        require(msg.sender == owner, \"Only owner\");\r\n        courses[_id] = Course(_name, 0);\r\n        totalCourses++;\r\n    }\r\n\r\n    function enroll(uint _id) public {\r\n        require(!enrolled[msg.sender][_id], \"Already enrolled\");\r\n\r\n        courses[_id].enrolledCount++;\r\n        enrolled[msg.sender][_id] = true;\r\n    }\r\n}\r\n",
+        "file": "Solidity.sol"
+      }
+    }
+  },
+  "Vottiny_System.sol": {
+    "__sources__": {
+      "Vottiny_System.sol": {
+        "content": "\r\n// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract VotingSystem {\r\n\r\n    string[] public candidates;\r\n    mapping(string => uint) public votes;\r\n    mapping(address => bool) public hasVoted;\r\n    \r\n\r\n   constructor() {\r\n    candidates.push(\"Alice\");\r\n    candidates.push(\"Bob\");\r\n    candidates.push(\"Charlie\");\r\n}\r\n    function vote(string memory _candidate) public {\r\n        require(!hasVoted[msg.sender], \"Already voted\");\r\n\r\n        bool valid = false;\r\n\r\n        for (uint i = 0; i < candidates.length; i++) {\r\n            if (keccak256(bytes(candidates[i])) == keccak256(bytes(_candidate))) {\r\n                valid = true;\r\n                break;\r\n            }\r\n        }\r\n\r\n        require(valid, \"Invalid candidate\");\r\n\r\n        votes[_candidate]++;\r\n        hasVoted[msg.sender] = true;\r\n    }\r\n\r\n    function getCandidates() public view returns (string[] memory) {\r\n        return candidates;\r\n    }\r\n}",
+        "file": "Vottiny_System.sol"
+      }
+    }
+  },
+  "Smart_Contract.sol": {
+    "__sources__": {
+      "Smart_Contract.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract StudentManagement {\r\n\r\n    //  State Variables\r\n    address public owner;\r\n    uint public totalStudents;\r\n\r\n    //  Struct\r\n    struct Student {\r\n        uint id;\r\n        string name;\r\n        uint age;\r\n        bool isEnrolled;\r\n    }\r\n\r\n    //  Array\r\n    Student[] public students;\r\n\r\n    //  Mapping\r\n    mapping(uint => Student) public studentById;\r\n    mapping(address => bool) public registered;\r\n\r\n    //  Constructor\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    //  Modifier\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner can perform this action\");\r\n        _;\r\n    }\r\n\r\n    //  Functions\r\n\r\n    // Add Student (only owner)\r\n    function addStudent(uint _id, string memory _name, uint _age) public onlyOwner {\r\n        Student memory newStudent = Student(_id, _name, _age, true);\r\n\r\n        students.push(newStudent);\r\n        studentById[_id] = newStudent;\r\n\r\n        totalStudents++;\r\n    }\r\n\r\n    // Get Student by ID\r\n    function getStudent(uint _id) public view returns (string memory, uint, bool) {\r\n        Student memory s = studentById[_id];\r\n        return (s.name, s.age, s.isEnrolled);\r\n    }\r\n\r\n    // Enroll Student (by address)\r\n    function register() public {\r\n        require(!registered[msg.sender], \"Already registered\");\r\n        registered[msg.sender] = true;\r\n    }\r\n\r\n    // Get Total Students\r\n    function getTotalStudents() public view returns (uint) {\r\n        return totalStudents;\r\n    }\r\n}",
+        "file": "Smart_Contract.sol"
+      }
+    }
+  },
+  "simple_calculator.sol": {
+    "__sources__": {
+      "simple_calculator.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n contract Calcultor {\r\n    function multi (uint num1, uint num2) external pure returns (uint){\r\n        return num1*num2;\r\n    }\r\n    function divi (uint num1, uint num2) external pure returns (uint){\r\n        return (num1)/num2;\r\n    }\r\n    function sub (uint num1, uint num2)external pure returns (uint){\r\n        return num1-num2;\r\n    }\r\n    function add (uint num1,uint num2)external pure returns (uint){\r\n        return num1+num2;\r\n    }\r\n    function modu( uint num1, uint num2)external pure returns(uint){\r\n        return num1%num2;\r\n    }\r\n }",
+        "file": "simple_calculator.sol"
+      }
+    }
+  }
+}

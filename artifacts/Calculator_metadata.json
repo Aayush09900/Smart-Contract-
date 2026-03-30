@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "a",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "b",
+						"type": "uint256"
+					}
+				],
+				"name": "add",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"calculator.sol": "Calculator"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"calculator.sol": {
+			"keccak256": "0xc67d0d95e2255911aad97bf2c3c7070458da57754614ca58b74ce50fe8749b6c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d9dab3a0ceb547f356ad126dd89abede20ab57671ed617048756b1916fc2dcc8",
+				"dweb:/ipfs/QmWoKkv4GQxM6e3qYGZM33eMDnEfDGPR4rBNCUfvt8QPXq"
+			]
+		}
+	},
+	"version": 1
+}

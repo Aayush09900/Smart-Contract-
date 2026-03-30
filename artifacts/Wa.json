@@ -1,0 +1,48 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea2646970667358221220b8544d81584520cebb2b3c37fbe628dfb5fcfa60749ed2c93838e4d21073967f64736f6c634300081f0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xB8 SLOAD 0x4D DUP2 PC GASLIMIT KECCAK256 0xCE 0xBB 0x2B EXTCODECOPY CALLDATACOPY EXTSTATICCALL DUPN 0x28 0xDF 0xB5 0xFC STATICCALL PUSH1 0x74 SWAP15 0xD2 0xC9 CODESIZE CODESIZE RETF 0xD2 LT PUSH20 0x967F64736F6C634300081F003300000000000000 ",
+			"sourceMap": "60:22:0:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "60806040525f5ffdfea2646970667358221220b8544d81584520cebb2b3c37fbe628dfb5fcfa60749ed2c93838e4d21073967f64736f6c634300081f0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xB8 SLOAD 0x4D DUP2 PC GASLIMIT KECCAK256 0xCE 0xBB 0x2B EXTCODECOPY CALLDATACOPY EXTSTATICCALL DUPN 0x28 0xDF 0xB5 0xFC STATICCALL PUSH1 0x74 SWAP15 0xD2 0xC9 CODESIZE CODESIZE RETF 0xD2 LT PUSH20 0x967F64736F6C634300081F003300000000000000 ",
+			"sourceMap": "60:22:0:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12400",
+				"executionCost": "64",
+				"totalCost": "12464"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}

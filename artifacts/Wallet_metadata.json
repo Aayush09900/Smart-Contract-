@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"wallet.sol": "Wallet"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"wallet.sol": {
+			"keccak256": "0x9cde20ce459954e7c3a5a0ff8b82637f56d4391d3ec257766b75637af809c239",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://93a26c00ea5c8f290d17d1b01ceaa743287319cbb5413ed2c576dbb5cda54cff",
+				"dweb:/ipfs/QmYLqJrfCBWByhvscAMtVdgG3D4iA5TApQ79qUJ4WGJPK1"
+			]
+		}
+	},
+	"version": 1
+}
