@@ -11,19 +11,13 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "candidates",
+				"inputs": [],
+				"name": "getAllVoters",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "address[]",
 						"name": "",
-						"type": "string"
+						"type": "address[]"
 					}
 				],
 				"stateMutability": "view",
@@ -31,27 +25,23 @@
 			},
 			{
 				"inputs": [],
-				"name": "getCandidates",
+				"name": "getMyDetails",
 				"outputs": [
 					{
-						"internalType": "string[]",
+						"internalType": "string",
 						"name": "",
-						"type": "string[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
+						"type": "string"
+					},
 					{
-						"internalType": "address",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "hasVoted",
-				"outputs": [
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
 					{
 						"internalType": "bool",
 						"name": "",
@@ -65,11 +55,82 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "_candidate",
+						"name": "_party",
 						"type": "string"
 					}
 				],
-				"name": "vote",
+				"name": "getVotes",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_age",
+						"type": "uint256"
+					}
+				],
+				"name": "register",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalVoters",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "voteAAP",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "voteBJP",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "voteCongress",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -82,12 +143,77 @@
 						"type": "string"
 					}
 				],
-				"name": "votes",
+				"name": "voteCount",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "voteINLD",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "voters",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "party",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "hasVoted",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "isRegistered",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "votersList",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -107,7 +233,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Vottiny_System.sol": "VotingSystem"
+			"Vote_System.sol": "VotingSystem"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -121,12 +247,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Vottiny_System.sol": {
-			"keccak256": "0xe7caaf8839c10199bc88d356f12ac137a7b2a9106b84baa0729a08600d594cf1",
+		"Vote_System.sol": {
+			"keccak256": "0x2f687bdf9444e4828258eb58f5a3cc3d129f9762c0da8f83015a940393d18e26",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://58731e92692f1032d35954a3e9d04b7f9a4ff8609d473b3267875ff745f0bf69",
-				"dweb:/ipfs/QmTsrKcUzjY2N5xjCtZr1v1TfmzmLgkfQTyRKDSV1WiMoE"
+				"bzz-raw://922d2c123b10c9a30a5abaf17905ffa01e69dabe48fa5a7b83436a0e337225f2",
+				"dweb:/ipfs/QmPuig2ib83TNKL3DefaAm63SsKGfG2xi6q9eAE2SG8fYu"
 			]
 		}
 	},

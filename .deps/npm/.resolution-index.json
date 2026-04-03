@@ -7,19 +7,27 @@
       }
     }
   },
-  "Solidity.sol": {
-    "__sources__": {
-      "Solidity.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CourseEnrollment {\r\n\r\n    address public owner;\r\n    uint public totalCourses;\r\n\r\n    struct Course {\r\n        string name;\r\n        uint enrolledCount;\r\n    }\r\n\r\n    mapping(uint => Course) public courses;\r\n    mapping(address => mapping(uint => bool)) public enrolled;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function addCourse(uint _id, string memory _name) public {\r\n        require(msg.sender == owner, \"Only owner\");\r\n        courses[_id] = Course(_name, 0);\r\n        totalCourses++;\r\n    }\r\n\r\n    function enroll(uint _id) public {\r\n        require(!enrolled[msg.sender][_id], \"Already enrolled\");\r\n\r\n        courses[_id].enrolledCount++;\r\n        enrolled[msg.sender][_id] = true;\r\n    }\r\n}\r\n",
-        "file": "Solidity.sol"
-      }
-    }
-  },
   "Vottiny_System.sol": {
     "__sources__": {
       "Vottiny_System.sol": {
         "content": "\r\n// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract VotingSystem {\r\n\r\n    string[] public candidates;\r\n    mapping(string => uint) public votes;\r\n    mapping(address => bool) public hasVoted;\r\n    \r\n\r\n   constructor() {\r\n    candidates.push(\"Alice\");\r\n    candidates.push(\"Bob\");\r\n    candidates.push(\"Charlie\");\r\n}\r\n    function vote(string memory _candidate) public {\r\n        require(!hasVoted[msg.sender], \"Already voted\");\r\n\r\n        bool valid = false;\r\n\r\n        for (uint i = 0; i < candidates.length; i++) {\r\n            if (keccak256(bytes(candidates[i])) == keccak256(bytes(_candidate))) {\r\n                valid = true;\r\n                break;\r\n            }\r\n        }\r\n\r\n        require(valid, \"Invalid candidate\");\r\n\r\n        votes[_candidate]++;\r\n        hasVoted[msg.sender] = true;\r\n    }\r\n\r\n    function getCandidates() public view returns (string[] memory) {\r\n        return candidates;\r\n    }\r\n}",
         "file": "Vottiny_System.sol"
+      }
+    }
+  },
+  "simple_calculator.sol": {
+    "__sources__": {
+      "simple_calculator.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n contract Calcultor {\r\n    function multi (uint num1, uint num2) external pure returns (uint){\r\n        return num1*num2;\r\n    }\r\n    function divi (uint num1, uint num2) external pure returns (uint){\r\n        return (num1)/num2;\r\n    }\r\n    function sub (uint num1, uint num2)external pure returns (uint){\r\n        return num1-num2;\r\n    }\r\n    function add (uint num1,uint num2)external pure returns (uint){\r\n        return num1+num2;\r\n    }\r\n    function modu( uint num1, uint num2)external pure returns(uint){\r\n        return num1%num2;\r\n    }\r\n }",
+        "file": "simple_calculator.sol"
+      }
+    }
+  },
+  "Solidity.sol": {
+    "__sources__": {
+      "Solidity.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CourseEnrollment {\r\n\r\n    address public owner;\r\n    uint public totalCourses;\r\n\r\n    struct Course {\r\n        string name;\r\n        uint enrolledCount;\r\n    }\r\n\r\n    mapping(uint => Course) public courses;\r\n    mapping(address => mapping(uint => bool)) public enrolled;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function addCourse(uint _id, string memory _name) public {\r\n        require(msg.sender == owner, \"Only owner\");\r\n        courses[_id] = Course(_name, 0);\r\n        totalCourses++;\r\n    }\r\n\r\n    function enroll(uint _id) public {\r\n        require(!enrolled[msg.sender][_id], \"Already enrolled\");\r\n\r\n        courses[_id].enrolledCount++;\r\n        enrolled[msg.sender][_id] = true;\r\n    }\r\n}\r\n",
+        "file": "Solidity.sol"
       }
     }
   },
@@ -31,11 +39,19 @@
       }
     }
   },
-  "simple_calculator.sol": {
+  "CourseEnrollment.sol": {
     "__sources__": {
-      "simple_calculator.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n contract Calcultor {\r\n    function multi (uint num1, uint num2) external pure returns (uint){\r\n        return num1*num2;\r\n    }\r\n    function divi (uint num1, uint num2) external pure returns (uint){\r\n        return (num1)/num2;\r\n    }\r\n    function sub (uint num1, uint num2)external pure returns (uint){\r\n        return num1-num2;\r\n    }\r\n    function add (uint num1,uint num2)external pure returns (uint){\r\n        return num1+num2;\r\n    }\r\n    function modu( uint num1, uint num2)external pure returns(uint){\r\n        return num1%num2;\r\n    }\r\n }",
-        "file": "simple_calculator.sol"
+      "CourseEnrollment.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CourseEnrollment {\r\n\r\n    // 🔹 State Variables\r\n    address public owner;\r\n    uint public totalStudents;\r\n\r\n    // 🔹 Struct\r\n    struct Student {\r\n        string name;\r\n        uint age;\r\n        string university;\r\n        string course;\r\n        bool isRegistered;\r\n    }\r\n\r\n    // 🔹 Mapping\r\n    mapping(address => Student) public student_address;\r\n\r\n    // 🔹 Array\r\n    address[] private students;\r\n\r\n    // 🔹 Constructor\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    // 🔹 Modifier: Only Owner\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner allowed\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Modifier: Check Registration\r\n    modifier isRegisteredUser() {\r\n        require(student_address[msg.sender].isRegistered, \"Not registered\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Function: Register Student\r\n    function set_details(\r\n        string memory name,\r\n        uint age,\r\n        string memory university\r\n    ) public {\r\n        require(!student_address[msg.sender].isRegistered, \"Already registered\");\r\n\r\n        student_address[msg.sender] = Student(\r\n            name,\r\n            age,\r\n            university,\r\n            \"\",\r\n            true\r\n        );\r\n\r\n        students.push(msg.sender);\r\n        totalStudents++;\r\n    }\r\n\r\n    // 🔹 Course Selection Functions\r\n    function AI() public isRegisteredUser {\r\n        student_address[msg.sender].course = \"AI\";\r\n    }\r\n\r\n    function Web_Development() public isRegisteredUser {\r\n        student_address[msg.sender].course = \"Web Development\";\r\n    }\r\n\r\n    function Blockchain() public isRegisteredUser {\r\n        student_address[msg.sender].course = \"Blockchain\";\r\n    }\r\n\r\n    function Datascience() public isRegisteredUser {\r\n        student_address[msg.sender].course = \"Data Science\";\r\n    }\r\n\r\n    // 🔹 View Functions\r\n    function get_all_students() public view returns (address[] memory) {\r\n        return students;\r\n    }\r\n\r\n    function getMyDetails()\r\n        public\r\n        view\r\n        returns (string memory, uint, string memory, string memory)\r\n    {\r\n        Student memory s = student_address[msg.sender];\r\n        return (s.name, s.age, s.university, s.course);\r\n    }\r\n}",
+        "file": "CourseEnrollment.sol"
+      }
+    }
+  },
+  "Vote_System.sol": {
+    "__sources__": {
+      "Vote_System.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract VotingSystem {\r\n\r\n    // 🔹 State Variables\r\n    address public owner;\r\n    uint public totalVoters;\r\n\r\n    // 🔹 Struct\r\n    struct Voter {\r\n        string name;\r\n        uint age;\r\n        string party;\r\n        bool hasVoted;\r\n        bool isRegistered;\r\n    }\r\n\r\n    // 🔹 Mapping\r\n    mapping(address => Voter) public voters;\r\n\r\n    // 🔹 Array\r\n    address[] public votersList;\r\n\r\n    // 🔹 Vote Count Mapping\r\n    mapping(string => uint) public voteCount;\r\n\r\n    // 🔹 Constructor\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    // 🔹 Modifier: Only Owner\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Not owner\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Modifier: Only Registered\r\n    modifier onlyRegistered() {\r\n        require(voters[msg.sender].isRegistered, \"Not registered\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Modifier: Vote Only Once\r\n    modifier notVoted() {\r\n        require(!voters[msg.sender].hasVoted, \"Already voted\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Register Voter\r\n    function register(string memory _name, uint _age) public {\r\n        require(_age >= 18, \"Not eligible to vote\");\r\n        require(!voters[msg.sender].isRegistered, \"Already registered\");\r\n\r\n        voters[msg.sender] = Voter(_name, _age, \"\", false, true);\r\n        votersList.push(msg.sender);\r\n        totalVoters++;\r\n    }\r\n\r\n    // 🔹 Internal Voting Logic\r\n    function _vote(string memory _party) internal onlyRegistered notVoted {\r\n        voters[msg.sender].party = _party;\r\n        voters[msg.sender].hasVoted = true;\r\n        voteCount[_party]++;\r\n    }\r\n\r\n    // 🔹 Vote Functions\r\n    function voteBJP() public {\r\n        _vote(\"BJP\");\r\n    }\r\n\r\n    function voteCongress() public {\r\n        _vote(\"Congress\");\r\n    }\r\n\r\n    function voteAAP() public {\r\n        _vote(\"AAP\");\r\n    }\r\n\r\n    function voteINLD() public {\r\n        _vote(\"INLD\");\r\n    }\r\n\r\n    // 🔹 Get My Details\r\n    function getMyDetails()\r\n        public\r\n        view\r\n        returns (string memory, uint, string memory, bool)\r\n    {\r\n        Voter memory v = voters[msg.sender];\r\n        return (v.name, v.age, v.party, v.hasVoted);\r\n    }\r\n\r\n    // 🔹 Get All Voters\r\n    function getAllVoters() public view returns (address[] memory) {\r\n        return votersList;\r\n    }\r\n\r\n    // 🔹 Get Results\r\n    function getVotes(string memory _party) public view returns (uint) {\r\n        return voteCount[_party];\r\n    }\r\n}",
+        "file": "Vote_System.sol"
       }
     }
   }
