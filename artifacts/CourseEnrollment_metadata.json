@@ -11,79 +11,69 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
-					}
-				],
-				"name": "addCourse",
+				"inputs": [],
+				"name": "AI",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "courses",
+				"inputs": [],
+				"name": "Blockchain",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Datascience",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Web_Development",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getMyDetails",
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "name",
+						"name": "",
 						"type": "string"
 					},
 					{
 						"internalType": "uint256",
-						"name": "enrolledCount",
+						"name": "",
 						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_id",
-						"type": "uint256"
-					}
-				],
-				"name": "enroll",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "enrolled",
+				"inputs": [],
+				"name": "get_all_students",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "address[]",
 						"name": "",
-						"type": "bool"
+						"type": "address[]"
 					}
 				],
 				"stateMutability": "view",
@@ -103,8 +93,70 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "university",
+						"type": "string"
+					}
+				],
+				"name": "set_details",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "student_address",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "age",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "university",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "course",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "isRegistered",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "totalCourses",
+				"name": "totalStudents",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -129,7 +181,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Solidity.sol": "CourseEnrollment"
+			"CourseEnrollment.sol": "CourseEnrollment"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -143,12 +195,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Solidity.sol": {
-			"keccak256": "0x4a1f4df1a16280e09522f6668db123339a41a60992f086b096c823a2f983a0f3",
+		"CourseEnrollment.sol": {
+			"keccak256": "0xcb77fcf4b072dcdd51d97bfd298952d54ae5647d306752b0b595d1c2d83b6410",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://65056b993eb0e1ca4c513947cf6d898dac6c9262cf5bed06d0b7697eb72267a7",
-				"dweb:/ipfs/QmXGs6Yu3z5dYb5Rh9x4XGHe5eH4nFv63HmF15RqetLiyw"
+				"bzz-raw://f0c55ee484f433f6eb8a448785be0d5ad55951cf377b55f4329d7b57b8a0eab4",
+				"dweb:/ipfs/QmSAHbi5pQb31Pr8PjrBeQaFAsRfVjHYhUunpNV3BA6jwM"
 			]
 		}
 	},
