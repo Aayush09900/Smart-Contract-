@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -18,9 +18,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Employe_management_system.sol": "Name"
+			"simplestore.sol": "emo"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -32,12 +32,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Employe_management_system.sol": {
-			"keccak256": "0xca3d9a6f62b2191cf14d644e75a375e821e410eb68a7404588bfd764359daa4e",
+		"simplestore.sol": {
+			"keccak256": "0x0037f04da86a4550c33279acfb73006a0746859bc22d84b97a7997aea2ddab8b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fb0503306b0104f3abb75353d131c259d96524f9241b4d843e1c899729bbb356",
-				"dweb:/ipfs/QmXgEaf6VGn5Fx9MtmEWrimbbvrvS2dGkd9XdVxLCeyJdv"
+				"bzz-raw://556d55aa7b5dd9f2e65ed36377177a0158c8f81863c168ae149ba8587443e469",
+				"dweb:/ipfs/QmYvgaXB2SeUSUiXv3fRE2iQDdzkHP1eYGC4xWooYQYvYH"
 			]
 		}
 	},

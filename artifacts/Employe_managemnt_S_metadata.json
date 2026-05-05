@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Employe_management_system.sol": "Name"
+			"Employe_management_system.sol": "Employe_managemnt_S"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -33,11 +33,11 @@
 	},
 	"sources": {
 		"Employe_management_system.sol": {
-			"keccak256": "0xca3d9a6f62b2191cf14d644e75a375e821e410eb68a7404588bfd764359daa4e",
+			"keccak256": "0x2cbb2526759714232ae1cf7128f702bb996b293b3e063140deb71530099a2975",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fb0503306b0104f3abb75353d131c259d96524f9241b4d843e1c899729bbb356",
-				"dweb:/ipfs/QmXgEaf6VGn5Fx9MtmEWrimbbvrvS2dGkd9XdVxLCeyJdv"
+				"bzz-raw://92ad1caa5650da12cb647de5b7b3e86022c8dc13ec250ac943781067b6625fb2",
+				"dweb:/ipfs/QmPw3u42YcASD229t1xtU1LtFVQZvMmd4hiEaBh6s6MPSa"
 			]
 		}
 	},

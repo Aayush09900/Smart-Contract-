@@ -1,0 +1,84 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "Car_types",
+				"outputs": [
+					{
+						"internalType": "enum Car_showroom.Car_type",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Default_type",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_type",
+						"type": "uint256"
+					}
+				],
+				"name": "update_type",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"car_showroom.sol": "Car_showroom"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"car_showroom.sol": {
+			"keccak256": "0xa373464f35ff04d342fc5ba010086ac260b5458151fa68c7830ce1adc25aca88",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f7a3c727536ec4444578d8289ec9b2d9a6a8883d6a03cdc8ff7a1e6581968e47",
+				"dweb:/ipfs/QmW2KZAUojQp7L7ARx9fiw2z7i7Ua86tyKGqpsSbEr7t2u"
+			]
+		}
+	},
+	"version": 1
+}

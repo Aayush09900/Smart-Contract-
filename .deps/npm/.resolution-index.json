@@ -15,27 +15,11 @@
       }
     }
   },
-  "simple_calculator.sol": {
-    "__sources__": {
-      "simple_calculator.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n contract Calcultor {\r\n    function multi (uint num1, uint num2) external pure returns (uint){\r\n        return num1*num2;\r\n    }\r\n    function divi (uint num1, uint num2) external pure returns (uint){\r\n        return (num1)/num2;\r\n    }\r\n    function sub (uint num1, uint num2)external pure returns (uint){\r\n        return num1-num2;\r\n    }\r\n    function add (uint num1,uint num2)external pure returns (uint){\r\n        return num1+num2;\r\n    }\r\n    function modu( uint num1, uint num2)external pure returns(uint){\r\n        return num1%num2;\r\n    }\r\n }",
-        "file": "simple_calculator.sol"
-      }
-    }
-  },
   "Solidity.sol": {
     "__sources__": {
       "Solidity.sol": {
         "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CourseEnrollment {\r\n\r\n    address public owner;\r\n    uint public totalCourses;\r\n\r\n    struct Course {\r\n        string name;\r\n        uint enrolledCount;\r\n    }\r\n\r\n    mapping(uint => Course) public courses;\r\n    mapping(address => mapping(uint => bool)) public enrolled;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function addCourse(uint _id, string memory _name) public {\r\n        require(msg.sender == owner, \"Only owner\");\r\n        courses[_id] = Course(_name, 0);\r\n        totalCourses++;\r\n    }\r\n\r\n    function enroll(uint _id) public {\r\n        require(!enrolled[msg.sender][_id], \"Already enrolled\");\r\n\r\n        courses[_id].enrolledCount++;\r\n        enrolled[msg.sender][_id] = true;\r\n    }\r\n}\r\n",
         "file": "Solidity.sol"
-      }
-    }
-  },
-  "Smart_Contract.sol": {
-    "__sources__": {
-      "Smart_Contract.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract StudentManagement {\r\n\r\n    //  State Variables\r\n    address public owner;\r\n    uint public totalStudents;\r\n\r\n    //  Struct\r\n    struct Student {\r\n        uint id;\r\n        string name;\r\n        uint age;\r\n        bool isEnrolled;\r\n    }\r\n\r\n    //  Array\r\n    Student[] public students;\r\n\r\n    //  Mapping\r\n    mapping(uint => Student) public studentById;\r\n    mapping(address => bool) public registered;\r\n\r\n    //  Constructor\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    //  Modifier\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner can perform this action\");\r\n        _;\r\n    }\r\n\r\n    //  Functions\r\n\r\n    // Add Student (only owner)\r\n    function addStudent(uint _id, string memory _name, uint _age) public onlyOwner {\r\n        Student memory newStudent = Student(_id, _name, _age, true);\r\n\r\n        students.push(newStudent);\r\n        studentById[_id] = newStudent;\r\n\r\n        totalStudents++;\r\n    }\r\n\r\n    // Get Student by ID\r\n    function getStudent(uint _id) public view returns (string memory, uint, bool) {\r\n        Student memory s = studentById[_id];\r\n        return (s.name, s.age, s.isEnrolled);\r\n    }\r\n\r\n    // Enroll Student (by address)\r\n    function register() public {\r\n        require(!registered[msg.sender], \"Already registered\");\r\n        registered[msg.sender] = true;\r\n    }\r\n\r\n    // Get Total Students\r\n    function getTotalStudents() public view returns (uint) {\r\n        return totalStudents;\r\n    }\r\n}",
-        "file": "Smart_Contract.sol"
       }
     }
   },
@@ -52,6 +36,222 @@
       "Vote_System.sol": {
         "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract VotingSystem {\r\n\r\n    // 🔹 State Variables\r\n    address public owner;\r\n    uint public totalVoters;\r\n\r\n    // 🔹 Struct\r\n    struct Voter {\r\n        string name;\r\n        uint age;\r\n        string party;\r\n        bool hasVoted;\r\n        bool isRegistered;\r\n    }\r\n\r\n    // 🔹 Mapping\r\n    mapping(address => Voter) public voters;\r\n\r\n    // 🔹 Array\r\n    address[] public votersList;\r\n\r\n    // 🔹 Vote Count Mapping\r\n    mapping(string => uint) public voteCount;\r\n\r\n    // 🔹 Constructor\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    // 🔹 Modifier: Only Owner\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Not owner\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Modifier: Only Registered\r\n    modifier onlyRegistered() {\r\n        require(voters[msg.sender].isRegistered, \"Not registered\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Modifier: Vote Only Once\r\n    modifier notVoted() {\r\n        require(!voters[msg.sender].hasVoted, \"Already voted\");\r\n        _;\r\n    }\r\n\r\n    // 🔹 Register Voter\r\n    function register(string memory _name, uint _age) public {\r\n        require(_age >= 18, \"Not eligible to vote\");\r\n        require(!voters[msg.sender].isRegistered, \"Already registered\");\r\n\r\n        voters[msg.sender] = Voter(_name, _age, \"\", false, true);\r\n        votersList.push(msg.sender);\r\n        totalVoters++;\r\n    }\r\n\r\n    // 🔹 Internal Voting Logic\r\n    function _vote(string memory _party) internal onlyRegistered notVoted {\r\n        voters[msg.sender].party = _party;\r\n        voters[msg.sender].hasVoted = true;\r\n        voteCount[_party]++;\r\n    }\r\n\r\n    // 🔹 Vote Functions\r\n    function voteBJP() public {\r\n        _vote(\"BJP\");\r\n    }\r\n\r\n    function voteCongress() public {\r\n        _vote(\"Congress\");\r\n    }\r\n\r\n    function voteAAP() public {\r\n        _vote(\"AAP\");\r\n    }\r\n\r\n    function voteINLD() public {\r\n        _vote(\"INLD\");\r\n    }\r\n\r\n    // 🔹 Get My Details\r\n    function getMyDetails()\r\n        public\r\n        view\r\n        returns (string memory, uint, string memory, bool)\r\n    {\r\n        Voter memory v = voters[msg.sender];\r\n        return (v.name, v.age, v.party, v.hasVoted);\r\n    }\r\n\r\n    // 🔹 Get All Voters\r\n    function getAllVoters() public view returns (address[] memory) {\r\n        return votersList;\r\n    }\r\n\r\n    // 🔹 Get Results\r\n    function getVotes(string memory _party) public view returns (uint) {\r\n        return voteCount[_party];\r\n    }\r\n}",
         "file": "Vote_System.sol"
+      }
+    }
+  },
+  "Like_Dislike.sol": {
+    "__sources__": {
+      "Like_Dislike.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Like_Dislike {\r\n    function Like_count (uint _like, uint _dislike) public pure  returns (uint) {\r\n    return _like + _dislike;\r\n}\r\n    function Like_percentage (uint _like, uint _dislike) public pure returns (uint) {\r\n        return (_like * 100) / (_like + _dislike);\r\n    }\r\n}\r\n",
+        "file": "Like_Dislike.sol"
+      }
+    }
+  },
+  "Calculator.sol": {
+    "__sources__": {
+      "Calculator.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n \r\ncontract Calculator{\r\n\r\n//Additions\r\n    function add (uint a, uint b) public pure returns (uint) {\r\n     return  a + b;\r\n    }\r\n\r\n    //Subraction \r\n    function subract (uint a, uint b) public pure returns (uint) {\r\n        return a - b;\r\n    }\r\n    //Multiplications\r\n    function multiply (uint a, uint b) public pure returns (uint) {\r\n        return a * b;\r\n    }\r\n    //Division\r\n    function divide (uint a, uint b) public pure returns (uint) {\r\n        return a / b;\r\n    }\r\n    //Modulus\r\n    function modulus (uint a, uint b) public pure returns (uint) {\r\n        return a % b;\r\n    }\r\n    \r\n}",
+        "file": "Calculator.sol"
+      }
+    }
+  },
+  "hello.sol": {
+    "__sources__": {
+      "hello.sol": {
+        "content": "// SPDX-License-Identifier: MIT \r\npragma solidity ^0.8.0;\r\n\r\ncontract Hello {\r\n    string public names=\"hello world\";\r\n    uint public number=8950663225;\r\n} ",
+        "file": "hello.sol"
+      }
+    }
+  },
+  "User_Bank.sol": {
+    "__sources__": {
+      "User_Bank.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract userbank{\r\n\r\n    address owner;\r\n    uint totalbalance;\r\n\r\n    function deposit (uint amount) public {\r\n        require(amount > 100,\"add above than INR 100\");\r\n        totalbalance += amount;\r\n    }\r\n\r\n    function withdraw_cash (uint _amount) public {\r\n        require(100 <= _amount, \"Minimum Withdrawal Should be above 100\");\r\n        totalbalance -= _amount;\r\n    }\r\n    \r\n    function get_balance() public view returns (uint){\r\n        return totalbalance;\r\n    }\r\n}",
+        "file": "User_Bank.sol"
+      }
+    }
+  },
+  "simple_calculator.sol": {
+    "__sources__": {
+      "simple_calculator.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n contract Calcultor {\r\n    function multi (uint num1, uint num2) external pure returns (uint){\r\n        return num1*num2;\r\n    }\r\n    function divi (uint num1, uint num2) external pure returns (uint){\r\n        return (num1)/num2;\r\n    }\r\n    function sub (uint num1, uint num2)external pure returns (uint){\r\n        return num1-num2;\r\n    }\r\n    function add (uint num1,uint num2)external pure returns (uint){\r\n        return num1+num2;\r\n    }\r\n    function modu( uint num1, uint num2)external pure returns(uint){\r\n        return num1%num2;\r\n    }\r\n }",
+        "file": "simple_calculator.sol"
+      }
+    }
+  },
+  "Like_Dislike1.sol": {
+    "__sources__": {
+      "Like_Dislike1.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract LikeDislike {\r\n\r\n    uint public likeCount;\r\n    uint public dislikeCount;\r\n\r\n    // Track if a user has already voted\r\n    mapping(address => bool) public hasVoted;\r\n\r\n    // Track user choice (true = like, false = dislike)\r\n    mapping(address => bool) public userChoice;\r\n\r\n    // Like function\r\n    function like() public {\r\n        require(!hasVoted[msg.sender], \"You have already voted\");\r\n\r\n        likeCount++;\r\n        hasVoted[msg.sender] = true;\r\n        userChoice[msg.sender] = true;\r\n    }\r\n\r\n    // Dislike function\r\n    function dislike() public {\r\n        require(!hasVoted[msg.sender], \"You have already voted\");\r\n\r\n        dislikeCount++;\r\n        hasVoted[msg.sender] = true;\r\n        userChoice[msg.sender] = false;\r\n    }\r\n\r\n    // Change vote\r\n    function changeVote() public {\r\n        require(hasVoted[msg.sender], \"You haven't voted yet\");\r\n\r\n        if (userChoice[msg.sender]) {\r\n            likeCount--;\r\n            dislikeCount++;\r\n            userChoice[msg.sender] = false;\r\n        } else {\r\n            dislikeCount--;\r\n            likeCount++;\r\n            userChoice[msg.sender] = true;\r\n        }\r\n    }\r\n\r\n    // Get total votes\r\n    function totalVotes() public view returns (uint) {\r\n        return likeCount + dislikeCount;\r\n    }\r\n}",
+        "file": "Like_Dislike1.sol"
+      }
+    }
+  },
+  "Task_Manager.sol": {
+    "__sources__": {
+      "Task_Manager.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Taskmanager {\r\n\r\n    enum Status{Todo, Inprogress, completed}\r\n\r\n    struct task{\r\n        string name;\r\n        Status status;\r\n    }\r\n\r\n    mapping(string => task) public status;\r\n\r\n    function Create_task(string memory _name) public {\r\n        status[_name] = task(_name, Status.Todo);\r\n    }\r\n    function update_taskstatus(string memory _name, uint _status) public {\r\n        status[_name].status = Status(_status);\r\n    }\r\n}",
+        "file": "Task_Manager.sol"
+      }
+    }
+  },
+  "Twitter_dummy.sol": {
+    "__sources__": {
+      "Twitter_dummy.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Twitter {\r\n\r\n    uint16 public MAX_TWEET_LENGTH = 280;\r\n\r\n    struct Tweet {\r\n        address author;\r\n        string content;\r\n        uint256 timestamp;\r\n        uint256 likes;\r\n    }\r\n\r\n    mapping(address => Tweet[]) public tweets;\r\n\r\n    // 0 = not liked, 1 = liked\r\n    mapping(address => mapping(uint => mapping(address => uint8))) public tweetLikes;\r\n\r\n    address public owner;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"YOU ARE NOT THE OWNER!\");\r\n        _;\r\n    }\r\n\r\n    function createTweet(string memory _tweet) public {\r\n        require(bytes(_tweet).length <= MAX_TWEET_LENGTH, \"Tweet too long!\");\r\n\r\n        tweets[msg.sender].push(\r\n            Tweet(msg.sender, _tweet, block.timestamp, 0)\r\n        );\r\n    }\r\n\r\n    function getAllTweets(address _owner) public view returns (Tweet[] memory) {\r\n        return tweets[_owner];\r\n    }\r\n\r\n    // LIKE / UNLIKE TOGGLE\r\n    function toggleLike(address _author, uint _index) public {\r\n        require(_index < tweets[_author].length, \"Tweet not found\");\r\n\r\n        if (tweetLikes[_author][_index][msg.sender] == 0) {\r\n            // Like\r\n            tweets[_author][_index].likes++;\r\n            tweetLikes[_author][_index][msg.sender] = 1;\r\n        } else {\r\n            // Unlike\r\n            tweets[_author][_index].likes--;\r\n            tweetLikes[_author][_index][msg.sender] = 0;\r\n        }\r\n    }\r\n}\r\n",
+        "file": "Twitter_dummy.sol"
+      }
+    }
+  },
+  "tp2.sol": {
+    "__sources__": {
+      "tp2.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Voting {\r\n\r\n    address public owner;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    struct Proposal {\r\n        string name;\r\n        uint256 voteCount;\r\n        uint256 deadline;\r\n    }\r\n\r\n    Proposal[] public proposals;\r\n\r\n    mapping(uint256 => mapping(address => bool)) public hasVoted;\r\n\r\n    mapping(address => uint256) public tokenBalance;\r\n\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner\");\r\n        _;\r\n    }\r\n\r\n    function createProposal(string memory _name, uint256 _duration) public onlyOwner {\r\n        proposals.push(Proposal({\r\n            name: _name,\r\n            voteCount: 0,\r\n            deadline: block.timestamp + _duration //uniepoxtime\r\n        }));\r\n    }\r\n\r\n    function giveTokens(address _user, uint256 _amount) public onlyOwner {\r\n        tokenBalance[_user] += _amount;\r\n    }\r\n\r\n    function vote(uint256 _proposalId) public {\r\n        Proposal storage p = proposals[_proposalId];\r\n\r\n        require(block.timestamp < p.deadline, \"Voting ended\");\r\n        require(!hasVoted[_proposalId][msg.sender], \"Already voted\");\r\n\r\n        uint256 weight = tokenBalance[msg.sender];\r\n        require(weight > 0, \"No voting power\");\r\n\r\n        p.voteCount += weight;\r\n        hasVoted[_proposalId][msg.sender] = true;\r\n    }\r\n\r\n    function getWinner() public view returns (uint256 winnerId) {\r\n        uint256 maxVotes = 0;\r\n\r\n        for (uint256 i = 0; i < proposals.length; i++) {\r\n            if (proposals[i].voteCount > maxVotes) {\r\n                maxVotes = proposals[i].voteCount;\r\n                winnerId = i;\r\n            }\r\n        }\r\n    }\r\n}",
+        "file": "tp2.sol"
+      }
+    }
+  },
+  "simple_voting.sol": {
+    "__sources__": {
+      "simple_voting.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract SimpleVoting {\r\n\r\n    struct Proposal {\r\n        string name;\r\n        uint256 voteCount;\r\n    }\r\n\r\n    Proposal[] public proposals;\r\n\r\n    // Track if user has voted\r\n    mapping(address => bool) public hasVoted;\r\n\r\n    function addProposal(string memory _name) public {\r\n        proposals.push(Proposal(_name, 0));\r\n    }\r\n\r\n    function vote(uint256 _proposalId) public {\r\n        require(!hasVoted[msg.sender], \"Already voted\");\r\n\r\n        proposals[_proposalId].voteCount += 1;\r\n        hasVoted[msg.sender] = true;\r\n    }\r\n\r\n    function getWinner() public view returns (string memory winnerName) {\r\n        uint256 maxVotes = 0;\r\n        uint256 winnerIndex = 0;\r\n\r\n        for (uint256 i = 0; i < proposals.length; i++) {\r\n            if (proposals[i].voteCount > maxVotes) {\r\n                maxVotes = proposals[i].voteCount;\r\n                winnerIndex = i;\r\n            }\r\n        }\r\n\r\n        return proposals[winnerIndex].name;\r\n    }\r\n}",
+        "file": "simple_voting.sol"
+      }
+    }
+  },
+  "Atm.sol": {
+    "__sources__": {
+      "Atm.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract userbank{\r\n\r\n    address owner;\r\n    uint totalbalance;\r\n\r\n    function deposit (uint amount) public {\r\n        require(amount > 100,\"add above than INR 100\");\r\n        totalbalance += amount;\r\n    }\r\n\r\n    function withdraw_cash (uint _amount) public {\r\n        require(100 <= _amount, \"Minimum Withdrawal Should be above 100\");\r\n        totalbalance -= _amount;\r\n    }\r\n    \r\n    function get_balance() public view returns (uint){\r\n        return totalbalance;\r\n    }\r\n}",
+        "file": "Atm.sol"
+      }
+    }
+  },
+  "Calculator1sol.sol": {
+    "__sources__": {
+      "Calculator1sol.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Calculator {\r\n\r\n    // Addition\r\n    function add(uint a, uint b) public pure returns (uint) {\r\n        return a + b;\r\n    }\r\n\r\n    // Subtraction\r\n    function subtract(uint a, uint b) public pure returns (uint) {\r\n        require(b <= a, \"Subtraction underflow\");\r\n        return a - b;\r\n    }\r\n\r\n    // Multiplication\r\n    function multiply(uint a, uint b) public pure returns (uint) {\r\n        return a * b;\r\n    }\r\n\r\n    // Division\r\n    function divide(uint a, uint b) public pure returns (uint) {\r\n        require(b != 0, \"Division by zero not allowed\");\r\n        return a / b;\r\n    }\r\n\r\n    // Modulus\r\n    function modulus(uint a, uint b) public pure returns (uint) {\r\n        require(b != 0, \"Modulo by zero not allowed\");\r\n        return a % b;\r\n    }\r\n}",
+        "file": "Calculator1sol.sol"
+      }
+    }
+  },
+  "contract_order_system.sol": {
+    "__sources__": {
+      "contract_order_system.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract order_system {\r\n\r\nenum Status {Pending , packed, Shipped, Delivered }\r\n\r\nstruct Order {\r\n    uint id;\r\n    string product;\r\n    Status status;\r\n\r\n}\r\n mapping (uint => Order) public orders;\r\n\r\n function createorder(uint _id, string memory _product) public {\r\n    orders[_id] = Order(_id, _product, Status.Pending);\r\n }\r\n function updateStatus(uint _id, uint _status) public{\r\n    orders[_id].status = Status(_status);\r\n }\r\n function getOrder(uint _id) public view returns (uint, string memory, Status){\r\n    Order memory o = orders[_id];\r\n    return (o.id, o.product, o.status);\r\n }\r\n \r\n}",
+        "file": "contract_order_system.sol"
+      }
+    }
+  },
+  "Smart_Contract.sol": {
+    "__sources__": {
+      "Smart_Contract.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract StudentManagement {\r\n\r\n    //  State Variables\r\n    address public owner;\r\n    uint public totalStudents;\r\n\r\n    //  Struct\r\n    struct Student {\r\n        uint id;\r\n        string name;\r\n        uint age;\r\n        bool isEnrolled;\r\n    }\r\n\r\n    //  Array\r\n    Student[] public students;\r\n\r\n    //  Mapping\r\n    mapping(uint => Student) public studentById;\r\n    mapping(address => bool) public registered;\r\n\r\n    //  Constructor\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    //  Modifier\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Only owner can perform this action\");\r\n        _;\r\n    }\r\n\r\n    //  Functions\r\n\r\n    // Add Student (only owner)\r\n    function addStudent(uint _id, string memory _name, uint _age) public onlyOwner {\r\n        Student memory newStudent = Student(_id, _name, _age, true);\r\n\r\n        students.push(newStudent);\r\n        studentById[_id] = newStudent;\r\n\r\n        totalStudents++;\r\n    }\r\n\r\n    // Get Student by ID\r\n    function getStudent(uint _id) public view returns (string memory, uint, bool) {\r\n        Student memory s = studentById[_id];\r\n        return (s.name, s.age, s.isEnrolled);\r\n    }\r\n\r\n    // Enroll Student (by address)\r\n    function register() public {\r\n        require(!registered[msg.sender], \"Already registered\");\r\n        registered[msg.sender] = true;\r\n    }\r\n\r\n    // Get Total Students\r\n    function getTotalStudents() public view returns (uint) {\r\n        return totalStudents;\r\n    }\r\n}",
+        "file": "Smart_Contract.sol"
+      }
+    }
+  },
+  "car_showroom.sol": {
+    "__sources__": {
+      "car_showroom.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Car_showroom{\r\n\r\n    enum Car_type{Hatchback, Coupe, Sedan, Suv, Micro_Suv}\r\n\r\n    struct Details{\r\n        uint id;\r\n        Car_type Type;\r\n    }\r\n\r\n    mapping(uint => Details) private carss;\r\n\r\n    Car_type public Car_types;\r\n\r\n    function Default_type() public {\r\n        Car_types = Car_type.Coupe;\r\n    }\r\n\r\n    function update_type(uint _id, uint _type) public {\r\n        carss[_id].Type = Car_type(_type);\r\n    }\r\n}",
+        "file": "car_showroom.sol"
+      }
+    }
+  },
+  "Employe_management_system.sol": {
+    "__sources__": {
+      "Employe_management_system.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract EmployeeManagement {\r\n\r\n    struct Employee {\r\n        string name;\r\n        uint salary;\r\n        string role;\r\n        bool isActive;\r\n    }\r\n\r\n    mapping(address => Employee) public employees;\r\n\r\n    address public admin;\r\n\r\n    constructor() {\r\n        admin = msg.sender; // HR/Admin\r\n    }\r\n\r\n    modifier onlyAdmin() {\r\n        require(msg.sender == admin, \"Not authorized\");\r\n        _;\r\n    }\r\n\r\n    // Add or update employee\r\n    function setEmployee(\r\n        address _emp,\r\n        string memory _name,\r\n        uint _salary,\r\n        string memory _role\r\n    ) public onlyAdmin {\r\n        employees[_emp] = Employee(_name, _salary, _role, true);\r\n    }\r\n\r\n    // Activate/Deactivate employee\r\n    function setStatus(address _emp, bool _status) public onlyAdmin {\r\n        employees[_emp].isActive = _status;\r\n    }\r\n\r\n    // View employee\r\n    function getEmployee(address _emp) public view returns (Employee memory) {\r\n        return employees[_emp];\r\n    }\r\n}",
+        "file": "Employe_management_system.sol"
+      }
+    }
+  },
+  "life_cycle.sol": {
+    "__sources__": {
+      "life_cycle.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract ProductLifecycle {\r\n\r\n    enum Stage { Created, Shipped, Delivered }\r\n\r\n    struct Product {\r\n        string name;\r\n        address owner;\r\n        Stage stage;\r\n    }\r\n\r\n    mapping(uint => Product) public products;\r\n    uint public productCount;\r\n\r\n    address public admin;\r\n\r\n    constructor() {\r\n        admin = msg.sender;\r\n    }\r\n\r\n    modifier onlyAdmin() {\r\n        require(msg.sender == admin, \"Not authorized\");\r\n        _;\r\n    }\r\n\r\n    // Create product\r\n    function createProduct(string memory _name) public onlyAdmin {\r\n        products[productCount] = Product(_name, msg.sender, Stage.Created);\r\n        productCount++;\r\n    }\r\n\r\n    // Update stage\r\n    function updateStage(uint _id, Stage _stage) public onlyAdmin {\r\n        Product storage p = products[_id];\r\n\r\n        // Prevent invalid transitions\r\n        require(uint(_stage) == uint(p.stage) + 1, \"Invalid stage transition\");\r\n\r\n        p.stage = _stage;\r\n    }\r\n\r\n    // Get product\r\n    function getProduct(uint _id) public view returns (Product memory) {\r\n        return products[_id];\r\n    }\r\n}",
+        "file": "life_cycle.sol"
+      }
+    }
+  },
+  "Parking_Smart_Contract.sol": {
+    "__sources__": {
+      "Parking_Smart_Contract.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Parking {\r\n\r\n    struct Vehicle {\r\n        uint startTime;\r\n        bool isParked;\r\n    }\r\n\r\n    mapping(address => Vehicle) public vehicles;\r\n\r\n    uint public hourlyRate = 1 ether; // example rate\r\n\r\n    // Park vehicle\r\n    function park() public {\r\n        require(!vehicles[msg.sender].isParked, \"Already parked\");\r\n\r\n        vehicles[msg.sender] = Vehicle(block.timestamp, true);\r\n    }\r\n\r\n    // Remove vehicle & calculate fee\r\n    function unpark() public payable {\r\n        Vehicle storage v = vehicles[msg.sender];\r\n        require(v.isParked, \"Not parked\");\r\n\r\n        uint duration = block.timestamp - v.startTime;\r\n        uint hoursParked = duration / 3600;\r\n\r\n        if (hoursParked == 0) {\r\n            hoursParked = 1; // minimum 1 hour\r\n        }\r\n\r\n        uint fee = hoursParked * hourlyRate;\r\n\r\n        require(msg.value >= fee, \"Insufficient payment\");\r\n\r\n        v.isParked = false;\r\n\r\n        // refund extra\r\n        if (msg.value > fee) {\r\n           (bool success, ) = payable(msg.sender).call{value: msg.value - fee}(\"\");\r\n              require(success, \"Refund failed\");\r\n        }\r\n    }\r\n}",
+        "file": "Parking_Smart_Contract.sol"
+      }
+    }
+  },
+  "newwallet.sol": {
+    "__sources__": {
+      "newwallet.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n \r\n contract ReceiveEther{\r\n    address private owner;\r\n    \r\n    constructor (){\r\n        owner = msg.sender;\r\n    }\r\n    function withdraw(uint amount) public {\r\n        require(msg.sender == owner, \"Not owner\");\r\n        require(amount <= address(this).balance, \"Insufficient balance\");\r\n        payable(owner).transfer(amount);\r\n    }\r\n\r\n }",
+        "file": "newwallet.sol"
+      }
+    }
+  },
+  "newwallet1.sol": {
+    "__sources__": {
+      "newwallet1.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract MultiUserWallet {\r\n\r\n    address public owner;\r\n\r\n    mapping(address => uint) public balances;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    modifier onlyOwner() {\r\n        require(msg.sender == owner, \"Not owner\");\r\n        _;\r\n    }\r\n\r\n    function deposit() public payable {\r\n        require(msg.value > 0, \"Send some ETH\");\r\n\r\n        balances[msg.sender] += msg.value;\r\n    }\r\n\r\n    function getMyBalance() public view returns (uint) {\r\n        return balances[msg.sender];\r\n    }\r\n\r\n    function withdraw(uint amount) public {\r\n        require(balances[msg.sender] >= amount, \"Insufficient balance\");\r\n\r\n        balances[msg.sender] -= amount;\r\n    }\r\n\r\n    function getContractBalance() public view onlyOwner returns (uint) {\r\n        return address(this).balance;\r\n    }\r\n}\r\n",
+        "file": "newwallet1.sol"
+      }
+    }
+  },
+  "Arraydemo.sol": {
+    "__sources__": {
+      "Arraydemo.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Array_Demo{\r\n\r\n    uint []  numbers= [10,20,30,40];\r\n    string [] names = [\"saurabh\",\"yogesh\",\"rohit\"];\r\n   \r\n\r\n    function add_numbers (uint number) public {\r\n        numbers.push(number);\r\n    }\r\n\r\n    function add_name (string memory name) public {\r\n        names.push(name);\r\n    }\r\n\r\n    function get_numbers () public view returns (uint [] memory) {\r\n        return numbers;\r\n    }\r\n    function get_names () public view returns (string [] memory) {\r\n        return names;\r\n    }\r\n}",
+        "file": "Arraydemo.sol"
+      }
+    }
+  },
+  "password.sol": {
+    "__sources__": {
+      "password.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity 0.8.0;\r\n\r\ncontract Password {\r\n    string private password = \"1234\";\r\n\r\n    function login(string memory _pass) public view returns(string memory) {\r\n        if(keccak256(bytes(_pass)) == keccak256(bytes(password))) {\r\n            return \"Access Granted\";\r\n        } else {\r\n            return \"Access Denied\";\r\n        }\r\n    }\r\n\r\n     function get_byte (string memory _pass) public pure returns (bytes memory){\r\n       return (bytes(_pass));\r\n    }\r\n    function get_length (string memory _input) public pure returns (uint){\r\n        return bytes(_input).length;\r\n    }\r\n    function back_string (bytes memory _byte) public pure returns (string memory){\r\n        return string(_byte);\r\n    }\r\n   function toUppercase(string memory _input) public pure returns(string memory){\r\n        bytes memory strByte = bytes(_input);\r\n        uint strLength = strByte.length;\r\n        bytes memory resStr= new bytes(strLength);\r\n\r\n        for(uint i=0;i<strLength;i++){\r\n            if(uint8(strByte[i])>=97 && uint8(strByte[i])<=122){\r\n              resStr[i] = bytes1(uint8(strByte[i])-32);\r\n            }else{\r\n            resStr[i] = strByte[i];\r\n        }\r\n        }\r\n\r\n        return string(resStr);\r\n    }\r\n\r\n    function toLowercase(string memory _input) public pure returns(string memory){\r\n        bytes memory strByte = bytes(_input);\r\n        uint strLength = strByte.length;\r\n        bytes memory resStr= new bytes(strLength);\r\n\r\n        for(uint i=0;i<strLength;i++){\r\n            if(uint8(strByte[i])>=65 && uint8(strByte[i])<=90){\r\n              resStr[i] = bytes1(uint8(strByte[i])+32);\r\n            }else{\r\n            resStr[i] = strByte[i];\r\n        }\r\n        }\r\n\r\n        return string(resStr);\r\n    }\r\n    function reverse(string memory _input) public pure returns (string memory) {\r\n    bytes memory str = bytes(_input);\r\n    bytes memory reversed = new bytes(str.length);\r\n\r\n    for (uint i = 0; i < str.length; i++) {\r\n        reversed[i] = str[str.length - 1 - i];\r\n    }\r\n\r\n    return string(reversed);\r\n}\r\n   \r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n   ",
+        "file": "password.sol"
+      }
+    }
+  },
+  "new_user.sol": {
+    "__sources__": {
+      "new_user.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract UserRegistry {\r\n\r\n    mapping(address => bool) public registeredUsers;\r\n\r\n    event UserRegistered(address user);\r\n\r\n    function register() public {\r\n        require(!registeredUsers[msg.sender], \"Already registered\");\r\n\r\n        registeredUsers[msg.sender] = true;\r\n\r\n        emit UserRegistered(msg.sender);\r\n    }\r\n}",
+        "file": "new_user.sol"
+      }
+    }
+  },
+  "payable.sol": {
+    "__sources__": {
+      "payable.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract ReceiveEther {\r\n    function deposit()public payable {\r\n\r\n    }\r\n    function getbalance () public view returns (uint){\r\n        return address(this).balance;\r\n    }\r\n   \r\n} ",
+        "file": "payable.sol"
+      }
+    }
+  },
+  "crowdfunding.sol": {
+    "__sources__": {
+      "crowdfunding.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract CrowdFunding {\r\n\r\n  address  owner;\r\n  uint public goal;\r\n  uint public totalfund;\r\n  uint deadline;\r\n\r\n  constructor (uint _goal,uint _min){\r\n   \r\n\r\n  }\r\n\r\n// event Funding(address user, uint _amount, string _message); // Event to log funding contributions)\r\nuint public total_balance = 2000;\r\n\r\nfunction fund (uint _amount) public  {\r\n  total_balance += _amount;\r\n }\r\n function withdraw(uint _amount) public {\r\n    total_balance -= _amount;\r\n  }\r\n  function getBalance() public view returns (uint) {\r\n    return total_balance;\r\n  }\r\n  function refund(uint _amount) public view returns (uint) {\r\n    return (total_balance - _amount); \r\n    \r\n  }\r\n}\r\n",
+        "file": "crowdfunding.sol"
+      }
+    }
+  },
+  "eventpassing.sol": {
+    "__sources__": {
+      "eventpassing.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Eventpassing {\r\n address wallet;\r\n uint balance;\r\n\r\n event deposite(uint amount);\r\n event account (address indexed acc , uint amount);\r\n\r\n function depositeAmount(uint amount) public {\r\n  balance += amount;\r\n\r\n  emit deposite(amount);\r\n\r\n } \r\n function withdrwalamount(uint amount) public {\r\n    balance -= amount;\r\n }\r\n function accounts() public payable {\r\n    emit account (msg.sender,msg.value);\r\n }\r\n}",
+        "file": "eventpassing.sol"
+      }
+    }
+  },
+  "simplestore.sol": {
+    "__sources__": {
+      "simplestore.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Ecommerce {\r\n\r\n    address public owner;\r\n    uint public productCount;\r\n    uint public orderCount;\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    //  Product structure\r\n    struct Product {\r\n        uint id;\r\n        string name;\r\n        uint price;\r\n        address payable seller;\r\n        bool available;\r\n    }\r\n\r\n    //  Order structure\r\n    struct Order {\r\n        uint id;\r\n        uint productId;\r\n        address buyer;\r\n        uint amount;\r\n    }\r\n\r\n    // Storage\r\n    mapping(uint => Product) public products;\r\n    mapping(uint => Order) public orders;\r\n\r\n    //  Events\r\n    event ProductAdded(uint id, string name, uint price, address seller);\r\n    event ProductPurchased(uint orderId, uint productId, address buyer, uint amount);\r\n    event ProductRemoved(uint productId);\r\n\r\n    //  Add Product\r\n    function addProduct(string memory _name, uint _price) public {\r\n        require(_price > 0, \"Price must be greater than 0\");\r\n\r\n        productCount++;\r\n\r\n        products[productCount] = Product(productCount, _name, _price, payable(msg.sender),true);\r\n\r\n        emit ProductAdded(productCount, _name, _price, msg.sender);\r\n    }\r\n\r\n    //  Buy Product\r\n    function buyProduct(uint _productId) public payable {\r\n        Product storage product = products[_productId];\r\n\r\n        require(product.available, \"Product not available\");\r\n        require(msg.value == product.price, \"Incorrect price\");\r\n\r\n        orderCount++;\r\n\r\n        // Save order\r\n        orders[orderCount] = Order(orderCount,_productId,msg.sender, msg.value);\r\n\r\n        // Transfer ETH to seller\r\n        product.seller.transfer(msg.value);\r\n\r\n        emit ProductPurchased(orderCount, _productId, msg.sender, msg.value);\r\n    }\r\n\r\n    //  Remove Product\r\n    function removeProduct(uint _productId) public {\r\n        Product storage product = products[_productId];\r\n\r\n        require(msg.sender == product.seller, \"Not seller\");\r\n\r\n        product.available = false;\r\n\r\n        emit ProductRemoved(_productId);\r\n    }\r\n}",
+        "file": "simplestore.sol"
       }
     }
   }

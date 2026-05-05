@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Employe_management_system.sol": "Name"
+			"life_cycle.sol": "lifecycle_Tracker"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -32,12 +32,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Employe_management_system.sol": {
-			"keccak256": "0xca3d9a6f62b2191cf14d644e75a375e821e410eb68a7404588bfd764359daa4e",
+		"life_cycle.sol": {
+			"keccak256": "0xb5fb14a89f81760a9c3ea39d22897ad8d3cbfabc818d009e19b7dd23e417d78a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fb0503306b0104f3abb75353d131c259d96524f9241b4d843e1c899729bbb356",
-				"dweb:/ipfs/QmXgEaf6VGn5Fx9MtmEWrimbbvrvS2dGkd9XdVxLCeyJdv"
+				"bzz-raw://c782fa2820705bb7fc4a645356ca0a9506ff04627cdeb46921b03dabec0965e1",
+				"dweb:/ipfs/QmbGwxZRjZxQdJXZ7rhGfEdsdLxciJshNrLmDuiDu3FsEq"
 			]
 		}
 	},
