@@ -69,7 +69,7 @@ contract Ecommerce {
     //  Remove Product
     function removeProduct(uint _productId) public {
         Product storage product = products[_productId];
-
+ 
         require(msg.sender == product.seller, "Not seller");
 
         product.available = false;

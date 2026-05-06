@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.0+commit.c7dfd78e"
 	},
 	"language": "Solidity",
 	"output": {
@@ -115,7 +115,7 @@
 		"compilationTarget": {
 			"contract_order_system.sol": "order_system"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "istanbul",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

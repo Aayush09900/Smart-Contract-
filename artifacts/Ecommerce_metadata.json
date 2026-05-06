@@ -270,11 +270,11 @@
 	},
 	"sources": {
 		"simplestore.sol": {
-			"keccak256": "0xb379b9ad6691e5d29eaa79f71c7ec958a82fe488cfb9a6f1a394a26c821b7448",
+			"keccak256": "0xc40c56dd7ae7cea0f258bd2c1554527b611cef2c70118a09bbfc449ea7050605",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7fcfb13118d70d135ee703489f26c735f7f984bbd5dcb5d41c0b1deacea2c192",
-				"dweb:/ipfs/Qmd4PX62xJ51s2HP7s7gte4cMZzRNA1BL94j3xq5mcDmN8"
+				"bzz-raw://fff2398674a62184cb760f44793c4dd0b2a6df73abff4a5ad4aead355d4d86b8",
+				"dweb:/ipfs/QmVodpZXmmFzWx6XjYCttpPMaADCrHH4619BgE2mAvTxxM"
 			]
 		}
 	},
