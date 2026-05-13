@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "array_function",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "sum",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Array.sol": "ArrayFunction"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Array.sol": {
+			"keccak256": "0x66e15150309f3c10e6d01e769ea962a1b7dc7aecf678357c8ed0b2cb96c0c7ee",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://634ec456fe0f9074cb38d540a607d995f738d66bf1c505d777b8a3a58a41fd96",
+				"dweb:/ipfs/QmVQCMCvjDFRPBx7tZYfQCTyuDQmMRmdbu2Y3nFtyxCENE"
+			]
+		}
+	},
+	"version": 1
+}

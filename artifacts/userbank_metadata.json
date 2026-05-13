@@ -58,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Atm.sol": "userbank"
+			"User_Bank.sol": "userbank"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -72,7 +72,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"Atm.sol": {
+		"User_Bank.sol": {
 			"keccak256": "0x28f421657a81cc7214a684c3c9b1a1194a8526908ddbfad9cabba0f79c3ff8d0",
 			"license": "MIT",
 			"urls": [
