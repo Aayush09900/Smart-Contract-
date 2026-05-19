@@ -1,0 +1,121 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "products",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "Batch_no",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "names",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "expired",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "productss",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "Batch_no",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "names",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "expired",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_Batch_no",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_names",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "_expired",
+						"type": "bool"
+					}
+				],
+				"name": "set_arr",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Products.sol": "productstruct"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Products.sol": {
+			"keccak256": "0xcde9f44b4d585103bf1f0e05f43347f575c23e28ca5ea35acc06f8792319b7a7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://71170239d8812ac376d450986290abb0b7511f3be58f2a6196867898ade308c5",
+				"dweb:/ipfs/Qmf61Jdqmvtgfzn3PX6mcjDzr7tDFTZZZFazUgLQRRhf1V"
+			]
+		}
+	},
+	"version": 1
+}

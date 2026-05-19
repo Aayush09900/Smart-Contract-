@@ -4,60 +4,7 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Deposite",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "Total_Balance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Withdrawal_Balance",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "view_Balance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			}
-		],
+		"abi": [],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -71,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Atm_wallet.sol": "A"
+			"Datatypes.sol": "A"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -85,12 +32,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Atm_wallet.sol": {
-			"keccak256": "0xd2d1646a2c25a176a39ba18aeb85e342eb6461c555bbaa8c87f4509b103f788c",
+		"Datatypes.sol": {
+			"keccak256": "0xfe91c16cfe80cddf648507a116750ff1a8611a0d9f8478a82fa263ecbe0d8beb",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4c29297253f900e8e0d503603031815c8ce1d3f336b487fcb139146581085352",
-				"dweb:/ipfs/QmdzSHMsWZ8P9UJqc16SLBk6x7Xc8wKPKvFSmV57187QBS"
+				"bzz-raw://131ffd40938a3453acc1f2036670c9ced2f0473355904d97112d53eba5c001d7",
+				"dweb:/ipfs/QmSDh4HX8muHAKxpsyAeopdpWhkBUsVEsp226hq9ugM9M1"
 			]
 		}
 	},
