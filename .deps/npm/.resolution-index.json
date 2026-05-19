@@ -382,6 +382,14 @@
       }
     }
   },
+  "BankacountSystem.sol": {
+    "__sources__": {
+      "BankacountSystem.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract BankAccountSystem {\r\n\r\n    // Struct = group multiple values together\r\n    struct Account {\r\n        string holderName;\r\n        uint balance;\r\n        uint accountNumber;\r\n    }\r\n\r\n    // Store account data for each user address\r\n    mapping(address => Account) public accounts;\r\n\r\n    // Create account\r\n    function createAccount(\r\n        string memory _name,\r\n        uint _accountNumber\r\n    ) public {\r\n\r\n        accounts[msg.sender] = Account({\r\n            holderName: _name,\r\n            balance: 0,\r\n            accountNumber: _accountNumber\r\n        });\r\n    }\r\n\r\n    // Deposit money\r\n    function deposit(uint _amount) public {\r\n\r\n        require(_amount > 0, \"Amount should be greater than 0\");\r\n\r\n        accounts[msg.sender].balance += _amount;\r\n    }\r\n\r\n    // Withdraw money\r\n    function withdraw(uint _amount) public {\r\n\r\n        require(_amount > 0, \"Amount should be greater than 0\");\r\n\r\n        require(\r\n            accounts[msg.sender].balance >= _amount,\r\n            \"Insufficient balance\"\r\n        );\r\n\r\n        accounts[msg.sender].balance -= _amount;\r\n    }\r\n\r\n    // View account details\r\n    function getAccount() public view returns(\r\n        string memory,\r\n        uint,\r\n        uint\r\n    ){\r\n        Account memory a = accounts[msg.sender];\r\n\r\n        return (\r\n            a.holderName,\r\n            a.balance,\r\n            a.accountNumber\r\n        );\r\n    }\r\n}",
+        "file": "BankacountSystem.sol"
+      }
+    }
+  },
   "Products.sol": {
     "__sources__": {
       "Products.sol": {
@@ -390,11 +398,19 @@
       }
     }
   },
-  "BankacountSystem.sol": {
+  "student.sol": {
     "__sources__": {
-      "BankacountSystem.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract BankAccountSystem {\r\n\r\n    // Struct = group multiple values together\r\n    struct Account {\r\n        string holderName;\r\n        uint balance;\r\n        uint accountNumber;\r\n    }\r\n\r\n    // Store account data for each user address\r\n    mapping(address => Account) public accounts;\r\n\r\n    // Create account\r\n    function createAccount(\r\n        string memory _name,\r\n        uint _accountNumber\r\n    ) public {\r\n\r\n        accounts[msg.sender] = Account({\r\n            holderName: _name,\r\n            balance: 0,\r\n            accountNumber: _accountNumber\r\n        });\r\n    }\r\n\r\n    // Deposit money\r\n    function deposit(uint _amount) public {\r\n\r\n        require(_amount > 0, \"Amount should be greater than 0\");\r\n\r\n        accounts[msg.sender].balance += _amount;\r\n    }\r\n\r\n    // Withdraw money\r\n    function withdraw(uint _amount) public {\r\n\r\n        require(_amount > 0, \"Amount should be greater than 0\");\r\n\r\n        require(\r\n            accounts[msg.sender].balance >= _amount,\r\n            \"Insufficient balance\"\r\n        );\r\n\r\n        accounts[msg.sender].balance -= _amount;\r\n    }\r\n\r\n    // View account details\r\n    function getAccount() public view returns(\r\n        string memory,\r\n        uint,\r\n        uint\r\n    ){\r\n        Account memory a = accounts[msg.sender];\r\n\r\n        return (\r\n            a.holderName,\r\n            a.balance,\r\n            a.accountNumber\r\n        );\r\n    }\r\n}",
-        "file": "BankacountSystem.sol"
+      "student.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract StudentRecords{\r\n\r\n    struct studentrecord{\r\n        uint roll;\r\n        string name;\r\n        uint marks;\r\n        bool present;\r\n    }\r\n\r\nstudentrecord public s1;\r\n\r\nconstructor(uint _roll, string memory _name , uint _marks, bool _present){\r\n s1.roll= _roll;\r\n s1.name=_name;\r\n s1.marks=_marks;\r\n s1.present=_present;\r\n}\r\n\r\n}",
+        "file": "student.sol"
+      }
+    }
+  },
+  "CourseRegistration.sol": {
+    "__sources__": {
+      "CourseRegistration.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n// Course \r\n// courseId\r\n// courseName\r\n// teacherName\r\n// totalSeats\r\n// enrolledStudents\r\n// Student \r\n// studentId\r\n// name\r\n// enrolled\r\n\r\ncontract CourseRegistration{\r\n\r\n    struct course{\r\n     \r\n    uint courseId;\r\n    string courseName;\r\n    string teacherName;\r\n    uint totalSeats;\r\n    uint enrolledStudents;\r\n    }\r\n\r\n    struct student{\r\n\r\n    uint studentId;\r\n    string name;\r\n    bool enrolled;\r\n    }\r\n\r\n    \r\n}\r\n",
+        "file": "CourseRegistration.sol"
       }
     }
   }
