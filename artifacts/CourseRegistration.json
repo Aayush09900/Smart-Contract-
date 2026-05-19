@@ -1,0 +1,48 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600e575f5ffd5b50603e80601a5f395ff3fe60806040525f5ffdfea2646970667358221220240a4d936df0793d785af117de375ab6bfbc1e4e9ca0f4cf465ce39cf3b3220c64736f6c634300081f0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x3E DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x24 EXP 0x4D SWAP4 PUSH14 0xF0793D785AF117DE375AB6BFBC1E 0x4E SWAP13 LOG0 DELEGATECALL 0xCF CHAINID TLOAD CALLF 0x9CF3 0xB3 0x22 0xC PUSH5 0x736F6C6343 STOP ADDMOD 0x1F STOP CALLER ",
+			"sourceMap": "203:285:0:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "60806040525f5ffdfea2646970667358221220240a4d936df0793d785af117de375ab6bfbc1e4e9ca0f4cf465ce39cf3b3220c64736f6c634300081f0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 PUSH0 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x24 EXP 0x4D SWAP4 PUSH14 0xF0793D785AF117DE375AB6BFBC1E 0x4E SWAP13 LOG0 DELEGATECALL 0xCF CHAINID TLOAD CALLF 0x9CF3 0xB3 0x22 0xC PUSH5 0x736F6C6343 STOP ADDMOD 0x1F STOP CALLER ",
+			"sourceMap": "203:285:0:-:0;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "12400",
+				"executionCost": "64",
+				"totalCost": "12464"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}
