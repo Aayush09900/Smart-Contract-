@@ -1,0 +1,237 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_patientId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_disease",
+						"type": "string"
+					}
+				],
+				"name": "addPatient",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "admittedCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_patientId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_doctor",
+						"type": "string"
+					}
+				],
+				"name": "assignDoctor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_patientId",
+						"type": "uint256"
+					}
+				],
+				"name": "dischargePatient",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_patientId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "generateBill",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_patientId",
+						"type": "uint256"
+					}
+				],
+				"name": "getPatientDetails",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "patients",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "patientId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "disease",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "doctorAssigned",
+						"type": "string"
+					},
+					{
+						"internalType": "bool",
+						"name": "admitted",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "billAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_patientId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_newDisease",
+						"type": "string"
+					}
+				],
+				"name": "updateDisease",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"HospitalManagement.sol": "HospitalManagement"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"HospitalManagement.sol": {
+			"keccak256": "0xcfa1a7d1c24fae772471c8490ad85a4d6fb901cf94bedc1648d687d0e3f56922",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://384ff6baab245bb0ad10db031f21fa27c32b4933cc80da7f89f14bcb065f3d76",
+				"dweb:/ipfs/QmeEbuycLGjHKv1aA9DHVPWr8y5MnTWDrp9zBW8St4WgiV"
+			]
+		}
+	},
+	"version": 1
+}
