@@ -510,5 +510,21 @@
         "file": "@openzeppelin/contracts@5.6.1/utils/Bytes.sol"
       }
     }
+  },
+  "abiencodepacked.sol": {
+    "__sources__": {
+      "abiencodepacked.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract abiencodepacked{\r\n  \r\n    string firstname;\r\n   string middlename;\r\n   string lastname;\r\n\r\n   function fullname( string memory _firstname, string memory _middlename , string memory _lastname) public pure  returns (string memory){\r\n    return string(abi.encodePacked(_firstname,\"\",_middlename,_lastname));\r\n   }\r\n}\r\n\r\n",
+        "file": "abiencodepacked.sol"
+      }
+    }
+  },
+  "greetingmessage.sol": {
+    "__sources__": {
+      "greetingmessage.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n\r\ncontract greetingmessagr{\r\n\r\n    string hello;\r\n    string name;\r\n\r\n    function message(string memory _hello,string memory _name) public pure returns (string memory){\r\n        return string (abi.encodePacked(_hello,\"\",_name));\r\n    }\r\n}",
+        "file": "greetingmessage.sol"
+      }
+    }
   }
 }
