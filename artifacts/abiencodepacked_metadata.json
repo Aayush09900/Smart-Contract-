@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_firstname",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_middlename",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_lastname",
+						"type": "string"
+					}
+				],
+				"name": "fullname",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"abiencodepacked.sol": "abiencodepacked"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"abiencodepacked.sol": {
+			"keccak256": "0x1a93c0e44b642e5833fd741e0d3e075e869519dfd0ed42e9a2734dd58f167449",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ff2573f5248068f627179ee198601272e69327638d6904979d3952394986717",
+				"dweb:/ipfs/QmV23fPaKaQ6GGFGpXmLMVCMAUG9MeGMjbt1PSSKRQVCFn"
+			]
+		}
+	},
+	"version": 1
+}
