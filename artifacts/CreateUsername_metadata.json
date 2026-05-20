@@ -1,0 +1,75 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "firstName",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "lastName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "birthYear",
+						"type": "uint256"
+					}
+				],
+				"name": "createUsername",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"CreateUsername.sol": "CreateUsername"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"CreateUsername.sol": {
+			"keccak256": "0x40245ce9d5bad9e31978f0d032ff69cfdc6d765f1ebafee2a1ef6ffd5de80aed",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a01a6f144467dd5fa8815fddde6b3c01e22a29d12b7f070fe79ec548948f16f9",
+				"dweb:/ipfs/QmQrwime7xp5GW16v4Q4enUjoHUBLzjdtsVRpj48Re671f"
+			]
+		}
+	},
+	"version": 1
+}
