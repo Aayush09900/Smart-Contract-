@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "num",
+						"type": "uint256"
+					}
+				],
+				"name": "convert",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"NumberToINR.sol": "NumberToINR"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"NumberToINR.sol": {
+			"keccak256": "0xc1d45d5878aaf85ce1a704f0e0e91d417f2b200a80a1dd9c6aa71a2a257703d6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d2ba1e5690c6a6ef6cb630a2396b02c126e49d8a32dbc8f0e7ea297d129bc301",
+				"dweb:/ipfs/QmWSjAyP3m5zRZjwmPrP2bsmTbxaY22E4HFB2QjReYZqVK"
+			]
+		}
+	},
+	"version": 1
+}
