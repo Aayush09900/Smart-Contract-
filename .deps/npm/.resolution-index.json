@@ -583,5 +583,13 @@
         "file": "CreateUsername.sol"
       }
     }
+  },
+  "Lottery.sol": {
+    "__sources__": {
+      "Lottery.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Lottery{\r\n\r\n    address owner;\r\n\r\n    constructor(){\r\n        owner=msg.sender;\r\n    }\r\n\r\n    struct Participant{\r\n        uint id;\r\n        address user;\r\n        uint amount;\r\n        bool winner;\r\n    }\r\n\r\n    mapping(uint => Participant) public participants;\r\n    uint[] totalParti;\r\n    uint Ids;\r\n\r\n    function addLottery() public payable{\r\n        uint amount = msg.value;\r\n        require(amount == 1 ether, \"You can only send 1 ether\");\r\n        Ids++;\r\n        participants[Ids] = Participant(Ids, msg.sender, amount, false);\r\n        totalParti.push(Ids);\r\n    }\r\n    address public winner;\r\n\r\n    function selectWinner() public{\r\n           require(msg.sender == owner,\"Access Denied\");\r\n\r\n           uint index = block.timestamp % totalParti.length;\r\n            winner = participants[totalParti[index]].user;\r\n            participants[totalParti[index]].winner = true;\r\n            uint winningAmount = address(this).balance;\r\n            participants[totalParti[index]].amount += winningAmount;\r\n            payable(winner).call{value: address(this).balance};\r\n    }\r\n}",
+        "file": "Lottery.sol"
+      }
+    }
   }
 }
