@@ -11,13 +11,6 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "enter",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -38,25 +31,19 @@
 			},
 			{
 				"inputs": [],
-				"name": "getPlayers",
+				"name": "entery",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getplayers",
 				"outputs": [
 					{
 						"internalType": "address[]",
 						"name": "",
 						"type": "address[]"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getWinner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -77,7 +64,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "pickWinner",
+				"name": "pick_winner",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -128,7 +115,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"lotter.sol": "Lottery"
+			"lotter.sol": "lottery"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -143,11 +130,11 @@
 	},
 	"sources": {
 		"lotter.sol": {
-			"keccak256": "0x620ab1244ba7c267631512549d05b8cd3f0abfeb11a3562976eb46936ff66f77",
+			"keccak256": "0x88b010d1a25f94d65a477e684aaeb48d1af6e65978822d5a6ccd87bb5faf3a79",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cef4408847c885d14f42f9072778233f4d428df813a1c5c8f25f26fc23a942dd",
-				"dweb:/ipfs/QmcrnCwXxVcVEHPrW4qzA8m9sWXNmRsrW64RKsSFRzUhPr"
+				"bzz-raw://a7e03d900bf1a01125899a0e74957c671eb22aa25097a7ad54de266b1b25822a",
+				"dweb:/ipfs/QmXKCpeBdDN27ixHtEtbKCySV3F3HFxm5QrQMdMzecrous"
 			]
 		}
 	},

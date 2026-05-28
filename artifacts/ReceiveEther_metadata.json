@@ -7,22 +7,20 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "deposit",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "getbalance",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -39,7 +37,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"payable.sol": "ReceiveEther"
+			"newwallet.sol": "ReceiveEther"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -53,12 +51,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"payable.sol": {
-			"keccak256": "0x12a3ff36c1ffc03631a0e9a46bb4c24a6ffa4425ad39e374451ebeb6d6456743",
+		"newwallet.sol": {
+			"keccak256": "0xd553ff4785b72513b4794c57fc9bf101d2a0ef0025cbac695cd3ecd739a73b71",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7a7a4bf1696ee76a988ae577a898d8c6309829ece552a10e2fcd00173514e687",
-				"dweb:/ipfs/QmUaPqKChFSMk5eyrWFHLUPfKQvcQjcQtfyLZ6jr96Zgfq"
+				"bzz-raw://8a1e6877dca85a8a1d5b97799cf931e0c72fc78c5a2291665d0c08dfc909b847",
+				"dweb:/ipfs/QmX6R9Y6Qd8nyYqhQqwLCAjNwbqa8VepdBhFTbnSpQyawg"
 			]
 		}
 	},

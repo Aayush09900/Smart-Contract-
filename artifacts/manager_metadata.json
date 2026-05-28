@@ -6,26 +6,44 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "addLottery",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "_member",
 						"type": "uint256"
 					}
 				],
-				"name": "Deposite",
+				"name": "already_exits",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "Total_Balance",
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"name": "member",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "contract manager",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -35,18 +53,16 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "_members",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_winner",
 						"type": "uint256"
 					}
 				],
-				"name": "Withdrawal_Balance",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "view_Balance",
+				"name": "pariticpants_enter",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -71,7 +87,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Atm_wallet.sol": "Atm_wallet"
+			"lotter.sol": "manager"
 		},
 		"evmVersion": "istanbul",
 		"libraries": {},
@@ -85,12 +101,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Atm_wallet.sol": {
-			"keccak256": "0xbbd97791805e2f4744e0023cedbca72b890b631c6559bfc49889a56b15bbd18c",
+		"lotter.sol": {
+			"keccak256": "0x54f8002a1ec012ffc80000ebb48addd40180626de286c3f1f19f32b1c874e8ae",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://548f7cb97920b8e956ed74f3974c8714aea70ae90d785d87232cd41947d1bde4",
-				"dweb:/ipfs/QmbXLL8m8hcuftvkJT6ctKxjNwKqe36UZA2vDw8HX4GQvX"
+				"bzz-raw://2bb375f4fd83f775651e9e35e0016a9366700908a624e5f211f63a3348b40e66",
+				"dweb:/ipfs/QmZYacQ6E6YU5XuasQWg9mwYyqKK22xhP14cDTq2yLu5XV"
 			]
 		}
 	},
