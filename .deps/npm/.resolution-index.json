@@ -607,5 +607,21 @@
         "file": "lotter.sol"
       }
     }
+  },
+  "new_lottery.sol": {
+    "__sources__": {
+      "new_lottery.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract new_lottery{\r\n\r\n    \r\n}",
+        "file": "new_lottery.sol"
+      }
+    }
+  },
+  "Message_board.sol": {
+    "__sources__": {
+      "Message_board.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract MessageBoard {\n    struct Message {\n        string username;\n        string message;\n        address userAddress;\n        uint256 timestamp;\n    }\n\n    Message[] public messages;\n\n    event MessagePosted(\n        string username,\n        string message,\n        address indexed user,\n        uint256 timestamp\n    );\n\n    function postMessage(\n        string memory _username,\n        string memory _message\n    ) public {\n        require(bytes(_username).length > 0, \"Username required\");\n        require(bytes(_message).length > 0, \"Message required\");\n\n        messages.push(\n            Message(_username, _message, msg.sender, block.timestamp)\n        );\n\n        emit MessagePosted(_username, _message, msg.sender, block.timestamp);\n    }\n\n    function getAllMessages() public view returns (Message[] memory) {\n        return messages;\n    }\n\n    function getMessageCount() public view returns (uint256) {\n        return messages.length;\n    }\n}\n",
+        "file": "Message_board.sol"
+      }
+    }
   }
 }
