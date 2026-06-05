@@ -123,6 +123,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "getCandidateCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getTopWinners",
 				"outputs": [
 					{
@@ -255,11 +268,11 @@
 	},
 	"sources": {
 		"Voting.sol": {
-			"keccak256": "0xa055e9be9effcee5a47c7f5f63d962e16c238d1171e6bade94c4e934bf710a90",
+			"keccak256": "0xd6ec65d70547a6c7d673af1642bf9b1417113f3f8374eb5aac854774db6c0ae6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0f7f64ababc5df1af82d22c1eb09cee7ed45ded252f84cd81f07d657a8c036ba",
-				"dweb:/ipfs/QmY43UDb7RYNNx4cuEsgYvfVdBeJQS2uGbwN4iBXTiqYjC"
+				"bzz-raw://33bea19ea1715e9a0ea8ec99c5ad89aced6c293b8270df18210a7d0a3e14ffcc",
+				"dweb:/ipfs/QmbqG8fRuBg66qi7YZXYutSZ5xTNdv2tCbsqHY4YZiLfj7"
 			]
 		}
 	},
