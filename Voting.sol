@@ -151,4 +151,8 @@ contract Voting {
         Candidate memory c = candidates[_candidateId];
         return (c.id, c.name);
     }
+
+    function getCandidateCount() public view returns(uint){
+        return candidatesCount;
+    }
 }
