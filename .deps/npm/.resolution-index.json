@@ -647,5 +647,13 @@
         "file": "Voting.sol"
       }
     }
+  },
+  "FlatTokennization.sol": {
+    "__sources__": {
+      "FlatTokennization.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract FlatTokenization {\n    struct Flat {\n        uint256 flatId;\n        address owner;\n        bool booked;\n    }\n\n    address public contractOwner;\n\n    uint256 public constant TOTAL_FLATS = 300;\n\n    uint256 public flatPrice = 1 wei;\n\n    mapping(uint256 => Flat) public flats;\n\n    event FlatBooked(\n        uint256 indexed flatId,\n        address indexed buyer,\n        uint256 amount\n    );\n\n    constructor() {\n        contractOwner = msg.sender;\n\n        for (uint256 i = 1; i <= TOTAL_FLATS; i++) {\n            flats[i] = Flat({flatId: i, owner: address(0), booked: false});\n        }\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == contractOwner, \"Only owner can call\");\n        _;\n    }\n\n    function bookFlat(uint256 _flatId) external payable {\n        require(_flatId > 0 && _flatId <= TOTAL_FLATS, \"Invalid flat id\");\n\n        require(!flats[_flatId].booked, \"Flat already booked\");\n\n        require(msg.value == flatPrice, \"Incorrect payment\");\n\n        flats[_flatId].owner = msg.sender;\n        flats[_flatId].booked = true;\n\n        emit FlatBooked(_flatId, msg.sender, msg.value);\n    }\n\n    function getFlatDetails(\n        uint256 _flatId\n    ) external view returns (uint256, address, bool) {\n        Flat memory flat = flats[_flatId];\n\n        return (flat.flatId, flat.owner, flat.booked);\n    }\n\n    function updateFlatPrice(uint256 _newPrice) external onlyOwner {\n        flatPrice = _newPrice;\n    }\n\n    function withdraw() external onlyOwner {\n        payable(contractOwner).transfer(address(this).balance);\n    }\n\n    function getContractBalance() external view returns (uint256) {\n        return address(this).balance;\n    }\n}\n",
+        "file": "FlatTokennization.sol"
+      }
+    }
   }
 }
