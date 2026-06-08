@@ -16,11 +16,15 @@ contract FlatTokenization {
 
     mapping(uint256 => Flat) public flats;
 
+event Withdraw(address indexed owner, uint256 amount); 
+
     event FlatBooked(
         uint256 indexed flatId,
         address indexed buyer,
         uint256 amount
+        
     );
+    
 
     constructor() {
         contractOwner = msg.sender;
@@ -60,9 +64,16 @@ contract FlatTokenization {
         flatPrice = _newPrice;
     }
 
+
     function withdraw() external onlyOwner {
-        payable(contractOwner).transfer(address(this).balance);
-    }
+    uint256 amount = address(this).balance;
+
+    (bool success, ) = payable(contractOwner).call{value: amount}("");
+
+    require(success, "Transfer failed");
+
+    emit Withdraw(contractOwner, amount);
+}
 
     function getContractBalance() external view returns (uint256) {
         return address(this).balance;
