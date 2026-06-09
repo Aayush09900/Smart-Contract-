@@ -655,5 +655,13 @@
         "file": "FlatTokennization.sol"
       }
     }
+  },
+  "squarelib.sol": {
+    "__sources__": {
+      "squarelib.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract library_square{\r\n\r\n    function _square(uint a)public pure returns (uint){\r\n    return a*a; \r\n    }\r\n    function get_square(uint A)public pure returns (uint){\r\n    return library_square._square(A);\r\n     }\r\n}",
+        "file": "squarelib.sol"
+      }
+    }
   }
 }
