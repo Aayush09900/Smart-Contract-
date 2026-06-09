@@ -648,19 +648,27 @@
       }
     }
   },
-  "FlatTokennization.sol": {
-    "__sources__": {
-      "FlatTokennization.sol": {
-        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract FlatTokenization {\n    struct Flat {\n        uint256 flatId;\n        address owner;\n        bool booked;\n    }\n\n    address public contractOwner;\n\n    uint256 public constant TOTAL_FLATS = 300;\n\n    uint256 public flatPrice = 1 wei;\n\n    mapping(uint256 => Flat) public flats;\n\nevent Withdraw(address indexed owner, uint256 amount); \n\n    event FlatBooked(\n        uint256 indexed flatId,\n        address indexed buyer,\n        uint256 amount\n        \n    );\n    \n\n    constructor() {\n        contractOwner = msg.sender;\n\n        for (uint256 i = 1; i <= TOTAL_FLATS; i++) {\n            flats[i] = Flat({flatId: i, owner: address(0), booked: false});\n        }\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == contractOwner, \"Only owner can call\");\n        _;\n    }\n\n    function bookFlat(uint256 _flatId) external payable {\n        require(_flatId > 0 && _flatId <= TOTAL_FLATS, \"Invalid flat id\");\n\n        require(!flats[_flatId].booked, \"Flat already booked\");\n\n        require(msg.value == flatPrice, \"Incorrect payment\");\n\n        flats[_flatId].owner = msg.sender;\n        flats[_flatId].booked = true;\n\n        emit FlatBooked(_flatId, msg.sender, msg.value);\n    }\n\n    function getFlatDetails(\n        uint256 _flatId\n    ) external view returns (uint256, address, bool) {\n        Flat memory flat = flats[_flatId];\n\n        return (flat.flatId, flat.owner, flat.booked);\n    }\n\n    function updateFlatPrice(uint256 _newPrice) external onlyOwner {\n        flatPrice = _newPrice;\n    }\n\n\n    function withdraw() external onlyOwner {\n    uint256 amount = address(this).balance;\n\n    (bool success, ) = payable(contractOwner).call{value: amount}(\"\");\n\n    require(success, \"Transfer failed\");\n\n    emit Withdraw(contractOwner, amount);\n}\n\n    function getContractBalance() external view returns (uint256) {\n        return address(this).balance;\n    }\n}\n",
-        "file": "FlatTokennization.sol"
-      }
-    }
-  },
   "squarelib.sol": {
     "__sources__": {
       "squarelib.sol": {
         "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract library_square{\r\n\r\n    function _square(uint a)public pure returns (uint){\r\n    return a*a; \r\n    }\r\n    function get_square(uint A)public pure returns (uint){\r\n    return library_square._square(A);\r\n     }\r\n}",
         "file": "squarelib.sol"
+      }
+    }
+  },
+  "Array_practice/Array_pra.sol": {
+    "__sources__": {
+      "Array_practice/Array_pra.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract Array_practice {\r\n\r\n    uint[] public numbers;\r\n\r\n    function addNumber(uint num) public {\r\n        numbers.push(num);\r\n    }\r\n\r\n    function getLength() public view returns(uint) {\r\n        return numbers.length;\r\n    }\r\n\r\n    function get_byindex(uint index) public view returns (uint) {\r\n        return numbers[index];\r\n    }\r\n\r\n    function update_byindex(uint index, uint num) public {\r\n        numbers[index] = num;\r\n    }\r\n\r\n    function delete_byindex(uint index) public {\r\n        delete numbers[index];\r\n    }\r\n\r\n    function remove_last() public view {\r\n        numbers.pop;\r\n    }\r\n\r\n    function sum_ofall() public view returns (uint num) {\r\n         uint sum = 0;\r\n\r\n        for(uint i = 0; i < numbers.length; i++) {\r\n            sum += numbers[i];\r\n        }\r\n\r\n        return sum;\r\n    }\r\n\r\n    function getLargest() public view returns (uint) {\r\n\r\n        uint largest = numbers[0];\r\n\r\n        for(uint i = 1; i < numbers.length; i++) {\r\n\r\n            if(numbers[i] > largest) {\r\n                largest = numbers[i];\r\n            }\r\n\r\n        }\r\n\r\n        return largest;\r\n    }\r\n\r\n}",
+        "file": "Array_practice/Array_pra.sol"
+      }
+    }
+  },
+  "FlatTokennization.sol": {
+    "__sources__": {
+      "FlatTokennization.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract FlatTokenization {\n    struct Flat {\n        uint256 flatId;\n        address owner;\n        bool booked;\n    }\n\n    address public contractOwner;\n\n    uint256 public constant TOTAL_FLATS = 300;\n\n    uint256 public flatPrice = 1 wei;\n\n    mapping(uint256 => Flat) public flats;\n\nevent Withdraw(address indexed owner, uint256 amount); \n\n    event FlatBooked(\n        uint256 indexed flatId,\n        address indexed buyer,\n        uint256 amount\n        \n    );\n    \n\n    constructor() {\n        contractOwner = msg.sender;\n\n        for (uint256 i = 1; i <= TOTAL_FLATS; i++) {\n            flats[i] = Flat({flatId: i, owner: address(0), booked: false});\n        }\n    }\n\n    modifier onlyOwner() {\n        require(msg.sender == contractOwner, \"Only owner can call\");\n        _;\n    }\n\n    function bookFlat(uint256 _flatId) external payable {\n        require(_flatId > 0 && _flatId <= TOTAL_FLATS, \"Invalid flat id\");\n\n        require(!flats[_flatId].booked, \"Flat already booked\");\n\n        require(msg.value == flatPrice, \"Incorrect payment\");\n\n        flats[_flatId].owner = msg.sender;\n        flats[_flatId].booked = true;\n\n        emit FlatBooked(_flatId, msg.sender, msg.value);\n    }\n\n    function getFlatDetails(\n        uint256 _flatId\n    ) external view returns (uint256, address, bool) {\n        Flat memory flat = flats[_flatId];\n\n        return (flat.flatId, flat.owner, flat.booked);\n    }\n\n    function updateFlatPrice(uint256 _newPrice) external onlyOwner {\n        flatPrice = _newPrice;\n    }\n\n\n    function withdraw() external onlyOwner {\n    uint256 amount = address(this).balance;\n\n    (bool success, ) = payable(contractOwner).call{value: amount}(\"\");\n\n    require(success, \"Transfer failed\");\n\n    emit Withdraw(contractOwner, amount);\n}\n\n    function getContractBalance() external view returns (uint256) {\n        return address(this).balance;\n    }\n}\n",
+        "file": "FlatTokennization.sol"
       }
     }
   }
