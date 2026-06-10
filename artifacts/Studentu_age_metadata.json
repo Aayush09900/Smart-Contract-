@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.35+commit.47b9dedd"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Student_age.sol": "Studentu_age"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Student_age.sol": {
+			"keccak256": "0x71ef2ab0eb1ee0f5c72cd07695777e5058699f46b987b9701881a2caaf0c2767",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0c5a34dbdddf8638bba0a6c1cac273e27fc0a6d422b2a6ed465b6e096a18282e",
+				"dweb:/ipfs/QmcD6iyRNV92vSLJKPo7si3YK5ueReqtqvmqUcHMjyUP3p"
+			]
+		}
+	},
+	"version": 1
+}
