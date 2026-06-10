@@ -671,5 +671,13 @@
         "file": "FlatTokennization.sol"
       }
     }
+  },
+  "Student_age.sol": {
+    "__sources__": {
+      "Student_age.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract StudentAge {\n    mapping(uint => uint) public studentAges;\n\n    function setAge(uint studentId, uint age) public {\n        studentAges[studentId] = age;\n    }\n\n    function getAge(uint studentId) public view returns (uint) {\n        return studentAges[studentId];\n    }\n}\n",
+        "file": "Student_age.sol"
+      }
+    }
   }
 }
