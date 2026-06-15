@@ -687,5 +687,21 @@
         "file": "defi_loan.sol"
       }
     }
+  },
+  "adv_eligibility.sol": {
+    "__sources__": {
+      "adv_eligibility.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract LoanEligibility {\n\n    mapping(address => uint256) public collateral;\n\n    function checkEligibility() external view returns (bool, uint256) {\n    bool eligible = collateral[msg.sender] >= 5 ether;\n\n    return (eligible, collateral[msg.sender]);\n}\n}",
+        "file": "adv_eligibility.sol"
+      }
+    }
+  },
+  "loan_eligibility.sol": {
+    "__sources__": {
+      "loan_eligibility.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract LoanEligibility {\n    mapping(address => uint256) public collateral;\n\n    function depositCollateral() external payable {\n        collateral[msg.sender] += msg.value;\n    }\n\n    function checkEligibility() external view returns (bool) {\n        return collateral[msg.sender] >= 5 ether;\n    }\n}\n\n",
+        "file": "loan_eligibility.sol"
+      }
+    }
   }
 }
