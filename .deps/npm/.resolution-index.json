@@ -703,5 +703,21 @@
         "file": "loan_eligibility.sol"
       }
     }
+  },
+  "intrestcal.sol": {
+    "__sources__": {
+      "intrestcal.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract InterestCalculator {\n    function calculateInterest(uint256 principal,uint256 rate,uint256 time) public pure returns (uint256) {\n        return (principal * rate * time) / 100;\n    }\n}\n",
+        "file": "intrestcal.sol"
+      }
+    }
+  },
+  "FD_Deposite.sol": {
+    "__sources__": {
+      "FD_Deposite.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract FixedDeposit {\n    struct FD {\n        uint256 amount;\n        uint256 startTime;\n        uint256 duration;\n        bool withdrawn;\n    }\n\n    mapping(address => FD) public deposits;\n    uint256 public constant INTEREST_RATE = 10;\n\n    function createFD(uint256 _duration) external payable {\n        require(msg.value > 0, \"Deposit ETH\");\n\n        deposits[msg.sender] = FD({amount: msg.value,startTime: block.timestamp,duration: _duration,withdrawn: false });\n    }\n\n    function withdrawFD() external {\n        FD storage fd = deposits[msg.sender];\n        require(!fd.withdrawn, \"Already withdrawn\");\n        require( block.timestamp >= fd.startTime + fd.duration, \"FD not matured\" );\n         uint256 interest = (fd.amount * INTEREST_RATE) / 100;\n        uint256 payout = fd.amount + interest;\n        fd.withdrawn = true;\n        payable(msg.sender).transfer(payout);\n    }\n}\n",
+        "file": "FD_Deposite.sol"
+      }
+    }
   }
 }
