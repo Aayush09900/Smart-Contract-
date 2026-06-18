@@ -70,7 +70,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"unquieValue.sol": "CommonValues"
+			"ArrSame_value.sol": "CommonValues"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -84,12 +84,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"unquieValue.sol": {
-			"keccak256": "0xe31fa05da88a42cd921c49e141fa45ec61438db3116f0cc6e78e74f32009ed6a",
+		"ArrSame_value.sol": {
+			"keccak256": "0x4a86c8d371cdfefc528c6b4662d4afc390f94cd885699d42e7059547c7f6ff5a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://75ce553df1e475a78c7ab23cd0219bd8132b3a8833617f399896b73dc7f52bb4",
-				"dweb:/ipfs/QmdNqt5wE42so6V33GMzxcVtUwSRwnUiQBnQpa9iQa56N4"
+				"bzz-raw://88cd1f2f95f7521588d817577269a58e8a166639ee8c579ef20b9896afee1c32",
+				"dweb:/ipfs/QmdZYFiLLqu8zSYXjntr6YYXuSGnyzPTdujqHbG1pP7ps1"
 			]
 		}
 	},
