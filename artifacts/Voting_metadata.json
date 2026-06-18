@@ -11,50 +11,30 @@
 				"type": "constructor"
 			},
 			{
-				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
 						"internalType": "string",
-						"name": "first",
+						"name": "_name",
 						"type": "string"
 					},
 					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "second",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "third",
-						"type": "string"
-					}
-				],
-				"name": "ResultDeclared",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
 						"internalType": "uint256",
-						"name": "candidateId",
+						"name": "_duration",
 						"type": "uint256"
 					}
 				],
-				"name": "Voted",
-				"type": "event"
+				"name": "createProposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "candidatesCount",
+				"name": "getWinner",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "winnerId",
 						"type": "uint256"
 					}
 				],
@@ -62,8 +42,19 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "declareResult",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "giveTokens",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -72,129 +63,21 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_candidateId",
+						"name": "",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
-				"name": "getCandidate",
+				"name": "hasVoted",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_candidateId",
-						"type": "uint256"
-					}
-				],
-				"name": "getCandidateBasic",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getCandidateCount",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTopWinners",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getTotalVoters",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -214,13 +97,48 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "resultDeclared",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "proposals",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "voteCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "",
-						"type": "bool"
+						"type": "address"
+					}
+				],
+				"name": "tokenBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -230,7 +148,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_candidateId",
+						"name": "_proposalId",
 						"type": "uint256"
 					}
 				],
@@ -253,7 +171,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Voting.sol": "Voting"
+			"tp2.sol": "Voting"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -267,12 +185,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"Voting.sol": {
-			"keccak256": "0xd6ec65d70547a6c7d673af1642bf9b1417113f3f8374eb5aac854774db6c0ae6",
+		"tp2.sol": {
+			"keccak256": "0x3b5a7e733feab195aa8b48c531f154d4b24c6d736133a3b0f95bf5bcf84f243a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://33bea19ea1715e9a0ea8ec99c5ad89aced6c293b8270df18210a7d0a3e14ffcc",
-				"dweb:/ipfs/QmbqG8fRuBg66qi7YZXYutSZ5xTNdv2tCbsqHY4YZiLfj7"
+				"bzz-raw://74de00ca675d2b19a4b1e5624ea5b5f5dbc31d8d2e8ff8027b8e5fd9f0e540fd",
+				"dweb:/ipfs/QmdzY5sWgsnP5m1R8QsJ8X4q7KomGEGgD31EUSyot9nfd2"
 			]
 		}
 	},

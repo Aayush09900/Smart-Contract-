@@ -6,14 +6,15 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"name": "checkEligibility",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
-					},
+						"type": "uint256"
+					}
+				],
+				"name": "A",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
@@ -26,17 +27,30 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
+						"type": "uint256"
 					}
 				],
-				"name": "collateral",
+				"name": "B",
 				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mergeArrays",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
 					}
 				],
 				"stateMutability": "view",
@@ -56,7 +70,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"adv_eligibility.sol": "LoanEligibility"
+			"mergeArray.sol": "MergeArrays"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -70,12 +84,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"adv_eligibility.sol": {
-			"keccak256": "0xba7d2fc25207e90af8e5058e0e0a9822cef07cef43af344e4e7d4c23c6479e3a",
+		"mergeArray.sol": {
+			"keccak256": "0x4ce3e33ef0743c7050753ee403ab214aed01f6cadc9c75e62698937c9eb20f0a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c0be0545ecce230c2ed2133277467939a9225faa470d7fc9c6a7134975d7a2ef",
-				"dweb:/ipfs/QmXpWYphZ39AUuJTov9pcwRHji5fBNQuQxCqY6S3r9BHSH"
+				"bzz-raw://af808b86b74c046ae12b594a16840f69ac20227a5d347a12b647fe1bf0ba8185",
+				"dweb:/ipfs/QmcygZ1A23A2rM4kZZdikGdXEg91xPBRMaZp5jytmufh4d"
 			]
 		}
 	},

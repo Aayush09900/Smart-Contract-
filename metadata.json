@@ -1,0 +1,6 @@
+{
+  "name": "Aayu Wallet",
+  "description": "A high-performance digital Web3 wallet featuring a cosmic metaverse UI/UX, multi-chain asset management, and integrated NFT displays.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
