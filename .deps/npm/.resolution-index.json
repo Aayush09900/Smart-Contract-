@@ -765,10 +765,18 @@
       }
     }
   },
+  "mergeArray.sol": {
+    "__sources__": {
+      "mergeArray.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract MergeArrays {\n    uint[] public A = [1, 2, 3];\n    uint[] public B = [4, 5, 6];\n\n    function mergeArrays() public view returns (uint[] memory) {\n        uint[] memory merged = new uint[](A.length + B.length);\n        uint index = 0;\n        for (uint i = 0; i < A.length; i++) {\n            merged[index] = A[i];\n            index++;\n        }\n        for (uint i = 0; i < B.length; i++) {\n            merged[index] = B[i];\n            index++;\n        }\n        return merged;\n    }\n}\n",
+        "file": "mergeArray.sol"
+      }
+    }
+  },
   "ArrSame_value.sol": {
     "__sources__": {
       "ArrSame_value.sol": {
-        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract CommonValues {\n    uint[] public arrayA = [1, 2, 3, 4, 5];\n    uint[] public arrayB = [3, 4, 5, 6, 7];\n\n    function getCommonValues() public view returns (uint[] memory) {\n        uint count = 0;\n\n        for (uint i = 0; i < arrayA.length; i++) {\n            for (uint j = 0; j < arrayB.length; j++) {\n                if (arrayA[i] == arrayB[j]) {\n                    count++;\n                }\n            }\n        }\n\n        uint[] memory common = new uint[](count);\n\n        uint index = 0;\n\n        for (uint i = 0; i < arrayA.length; i++) {\n            for (uint j = 0; j < arrayB.length; j++) {\n                if (arrayA[i] == arrayB[j]) {\n                    common[index] = arrayA[i];\n\n                    index++;\n                }\n            }\n        }\n\n        return common;\n    }\n}\n",
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract CommonValues {\n    uint[] public arrayA = [1, 2, 3, 4, 5];\n    uint[] public arrayB = [3, 4, 5, 6, 7];\n\n    function getCommonValues() public view returns (uint[] memory) {\n        uint count = 0;\n        for (uint i = 0; i < arrayA.length; i++) {\n            for (uint j = 0; j < arrayB.length; j++) {\n                if (arrayA[i] == arrayB[j]) {\n                    count++;\n                }\n            }\n        }\n     uint[] memory common = new uint[](count);\n        uint index = 0;\n        for (uint i = 0; i < arrayA.length; i++) {\n            for (uint j = 0; j < arrayB.length; j++) {\n                if (arrayA[i] == arrayB[j]) {\n                    common[index] = arrayA[i];\n                    index++;\n                }\n            }\n        }\n        return common;\n    }\n}\n",
         "file": "ArrSame_value.sol"
       }
     }
@@ -776,16 +784,8 @@
   "unquieValue.sol": {
     "__sources__": {
       "unquieValue.sol": {
-        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract UniqueValues {\n    uint[] public A = [1, 2, 3, 4];\n    uint[] public B = [3, 4, 5, 6];\n\n    function getUniqueValues() public view returns (uint[] memory) {\n        uint[] memory temp = new uint[](A.length + B.length);\n\n        uint count = 0;\n\n        for (uint i = 0; i < A.length; i++) {\n            bool found = false;\n            for (uint j = 0; j < B.length; j++) {\n                if (A[i] == B[j]) {found = true;}\n            }\n\n            if (!found) { temp[count] = A[i];count++;}\n        }\n\n        for (uint i = 0; i < B.length; i++) {\n            bool found = false;\n\n            for (uint j = 0; j < A.length; j++) {if (B[i] == A[j]) { found = true;}\n            }\n\n            if (!found) { temp[count] = B[i];count++;}\n        }\n\n        uint[] memory unique = new uint[](count);\n        for (uint i = 0; i < count; i++) {\n            unique[i] = temp[i];\n        }\n\n        return unique;\n    }\n}\n",
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract UniqueValues {\n    uint[] public A = [1, 2, 3, 4];\n    uint[] public B = [3, 4, 5, 6];\n\n    function getUniqueValues() public view returns (uint[] memory) {\n        uint[] memory temp = new uint[](A.length + B.length);\n        uint count = 0;\n        for (uint i = 0; i < A.length; i++) {\n            bool found = false;\n            for (uint j = 0; j < B.length; j++) {\n                if (A[i] == B[j]) {found = true;}\n            }\n            if (!found) { temp[count] = A[i];count++;}\n        }\n        for (uint i = 0; i < B.length; i++) {\n            bool found = false;\n            for (uint j = 0; j < A.length; j++) {if (B[i] == A[j]) { found = true;}\n            }\n            if (!found) { temp[count] = B[i];count++;}\n        }\n        uint[] memory unique = new uint[](count);\n        for (uint i = 0; i < count; i++) {\n            unique[i] = temp[i];\n        }\n        return unique;\n    }\n}\n",
         "file": "unquieValue.sol"
-      }
-    }
-  },
-  "mergeArray.sol": {
-    "__sources__": {
-      "mergeArray.sol": {
-        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.20;\n\ncontract MergeArrays {\n    uint[] public A = [1, 2, 3];\n    uint[] public B = [4, 5, 6];\n\n    function mergeArrays() public view returns (uint[] memory) {\n        uint[] memory merged = new uint[](A.length + B.length);\n        uint index = 0;\n        for (uint i = 0; i < A.length; i++) {\n            merged[index] = A[i];\n            index++;\n        }\n        for (uint i = 0; i < B.length; i++) {\n            merged[index] = B[i];\n            index++;\n        }\n        return merged;\n    }\n}\n",
-        "file": "mergeArray.sol"
       }
     }
   }
