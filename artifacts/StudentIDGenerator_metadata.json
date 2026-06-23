@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.35+commit.47b9dedd"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rollNumber",
+						"type": "uint256"
+					}
+				],
+				"name": "generateStudentID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"StudentIDGenerator.sol": "StudentIDGenerator"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"StudentIDGenerator.sol": {
+			"keccak256": "0x9c1627a8818285be3853305f260d16c4b6948661e0d72c36380fc2721d2617c7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://274d2179815b990a8860fff99c26d73bc5d3489080685d5961abff5861299cf7",
+				"dweb:/ipfs/QmWhmkDi3pv7HSX1hqzcTMVcCtqK5Q5YBpA7LHnfczaX3Q"
+			]
+		}
+	},
+	"version": 1
+}
