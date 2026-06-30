@@ -11,30 +11,86 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
 				"inputs": [
 					{
+						"indexed": false,
 						"internalType": "string",
-						"name": "_name",
+						"name": "first",
 						"type": "string"
 					},
 					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "second",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "third",
+						"type": "string"
+					}
+				],
+				"name": "ResultDeclared",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
 						"internalType": "uint256",
-						"name": "_duration",
+						"name": "candidateId",
 						"type": "uint256"
 					}
 				],
-				"name": "createProposal",
+				"name": "Voted",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "candidatesCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "declareResult",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "getWinner",
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_candidateId",
+						"type": "uint256"
+					}
+				],
+				"name": "getCandidate",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "winnerId",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -44,40 +100,101 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_user",
-						"type": "address"
-					},
-					{
 						"internalType": "uint256",
-						"name": "_amount",
+						"name": "_candidateId",
 						"type": "uint256"
 					}
 				],
-				"name": "giveTokens",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"name": "getCandidateBasic",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [
+				"inputs": [],
+				"name": "getCandidateCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTopWinners",
+				"outputs": [
 					{
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					},
 					{
-						"internalType": "address",
+						"internalType": "string",
 						"name": "",
-						"type": "address"
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
-				"name": "hasVoted",
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getTotalVoters",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -97,48 +214,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "proposals",
+				"inputs": [],
+				"name": "resultDeclared",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "voteCount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "deadline",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
+						"internalType": "bool",
 						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "tokenBalance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "view",
@@ -148,7 +230,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_proposalId",
+						"name": "_candidateId",
 						"type": "uint256"
 					}
 				],
@@ -171,7 +253,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"tp2.sol": "Voting"
+			"Voting.sol": "Voting"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -185,12 +267,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"tp2.sol": {
-			"keccak256": "0x3b5a7e733feab195aa8b48c531f154d4b24c6d736133a3b0f95bf5bcf84f243a",
+		"Voting.sol": {
+			"keccak256": "0xd6ec65d70547a6c7d673af1642bf9b1417113f3f8374eb5aac854774db6c0ae6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://74de00ca675d2b19a4b1e5624ea5b5f5dbc31d8d2e8ff8027b8e5fd9f0e540fd",
-				"dweb:/ipfs/QmdzY5sWgsnP5m1R8QsJ8X4q7KomGEGgD31EUSyot9nfd2"
+				"bzz-raw://33bea19ea1715e9a0ea8ec99c5ad89aced6c293b8270df18210a7d0a3e14ffcc",
+				"dweb:/ipfs/QmbqG8fRuBg66qi7YZXYutSZ5xTNdv2tCbsqHY4YZiLfj7"
 			]
 		}
 	},
