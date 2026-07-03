@@ -1416,5 +1416,13 @@
         "file": "SimpleLending1.sol"
       }
     }
+  },
+  "Stakingcontract.sol": {
+    "__sources__": {
+      "Stakingcontract.sol": {
+        "content": "// SPDX-License-Identifier: Unlicense\r\npragma solidity ^0.8.13;\r\n\r\ncontract StakingContract { \r\n    uint256 public totalStaked;\r\n    mapping(address => uint256) public stakedBalances;\r\n\r\n    function stake(uint256 amount) public payable {\r\n        require(amount > 0, \"Amount must be greater than 0\");\r\n        require(msg.value == amount, \"Amount must be equal to msg.value\");\r\n        totalStaked += amount;\r\n        stakedBalances[msg.sender] += amount;\r\n    }\r\n\r\n    function unstake(uint256 amount) public payable {\r\n        require(amount <= stakedBalances[msg.sender], \"Not enough balance\");\r\n        totalStaked -= amount;\r\n        stakedBalances[msg.sender] -= amount;\r\n        payable(msg.sender).transfer(amount);\r\n    }\r\n}",
+        "file": "Stakingcontract.sol"
+      }
+    }
   }
 }
