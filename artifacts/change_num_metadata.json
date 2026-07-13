@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"chnagenum.sol": "change_num"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"chnagenum.sol": {
+			"keccak256": "0xf4e273bebac703fb63d538f27c6be07262b1a9ca5fc203a78d04a5097b4c6415",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8399d9670a72f7499fd4482b8c3c4dd98426c81b8484dcd8999ade7ab122ef04",
+				"dweb:/ipfs/QmPBJDkCsZ9DLFqLMTYK2JdXDzhYtJ1WRQLvcvv5NFNdbU"
+			]
+		}
+	},
+	"version": 1
+}
