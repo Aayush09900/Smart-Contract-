@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.35+commit.47b9dedd"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "change",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "number",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"chnagenum.sol": "c"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"chnagenum.sol": {
+			"keccak256": "0x8daeff0f5220828054074ffb025cd973e4acd997727a2645592d7c7ae6ec2ca0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4491aa0b6656872c52be9d8f1e4b1b55861ea3af17eb39e8c3bf025aed21a879",
+				"dweb:/ipfs/QmXhyPWtMcPfkyqomuzHtYfdEZN16LfF5f1nCMR5Dza2kp"
+			]
+		}
+	},
+	"version": 1
+}
