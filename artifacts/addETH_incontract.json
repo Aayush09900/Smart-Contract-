@@ -1,0 +1,59 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"sepolia:11155111": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600f57600080fd5b50606180601d6000396000f3fe608060405260043610601c5760003560e01c80634f2be91f146021575b600080fd5b60276029565b005b56fea264697066735822122025c1a4287f9de2bfd1f0f63435203fa5d56b71339ac618ee13397d22b5561bc364736f6c63430008000033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x61 DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH1 0x1C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x4F2BE91F EQ PUSH1 0x21 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x27 PUSH1 0x29 JUMP JUMPDEST STOP JUMPDEST JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x25 0xC1 LOG4 0x28 PUSH32 0x9DE2BFD1F0F63435203FA5D56B71339AC618EE13397D22B5561BC364736F6C63 NUMBER STOP ADDMOD STOP STOP CALLER ",
+			"sourceMap": "61:70:0:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "608060405260043610601c5760003560e01c80634f2be91f146021575b600080fd5b60276029565b005b56fea264697066735822122025c1a4287f9de2bfd1f0f63435203fa5d56b71339ac618ee13397d22b5561bc364736f6c63430008000033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH1 0x1C JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x4F2BE91F EQ PUSH1 0x21 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x27 PUSH1 0x29 JUMP JUMPDEST STOP JUMPDEST JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x25 0xC1 LOG4 0x28 PUSH32 0x9DE2BFD1F0F63435203FA5D56B71339AC618EE13397D22B5561BC364736F6C63 NUMBER STOP ADDMOD STOP STOP CALLER ",
+			"sourceMap": "61:70:0:-:0;;;;;;;;;;;;;;;;;;;;;96:32;;;:::i;:::-;;;:::o"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "19400",
+				"executionCost": "75",
+				"totalCost": "19475"
+			},
+			"external": {
+				"add()": "98"
+			}
+		},
+		"methodIdentifiers": {
+			"add()": "4f2be91f"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [],
+			"name": "add",
+			"outputs": [],
+			"stateMutability": "payable",
+			"type": "function"
+		}
+	]
+}

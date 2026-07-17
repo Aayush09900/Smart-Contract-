@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "add",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Addmoney_incontract.sol": "addETH_incontract"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Addmoney_incontract.sol": {
+			"keccak256": "0x4ca065300ff6152d0fab49b586c586bc78483bd4f4a16820caac9535fe192072",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://20c6b45d326f15b8f33b37a4b3e51c3ff59f95252b67ebe444b3e26fceb66fcd",
+				"dweb:/ipfs/QmT3Z8GUHFzgbf3nSUC5cKD42FwZVbuJkBnwSP81tKdB9r"
+			]
+		}
+	},
+	"version": 1
+}
