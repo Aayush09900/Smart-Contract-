@@ -111,14 +111,6 @@
       }
     }
   },
-  "payable.sol": {
-    "__sources__": {
-      "payable.sol": {
-        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract ReceiveEther {\r\n    function deposit()public payable {\r\n\r\n    }\r\n    function getbalance () public view returns (uint){\r\n        return address(this).balance;\r\n    }\r\n   \r\n} ",
-        "file": "payable.sol"
-      }
-    }
-  },
   "contract_order_system.sol": {
     "__sources__": {
       "contract_order_system.sol": {
@@ -1573,6 +1565,59 @@
       "parent.sol": {
         "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.28;\r\n\r\ncontract parent{\r\n    string public name =\"aayush\";\r\n\r\n    function greeet()public pure returns (string memory){\r\n        return \"welcome\";\r\n    }\r\n}\r\n\r\ncontract child is parent {\r\n    function greeeting ()public pure returns (string memory){\r\n        return \"welcome\";\r\n    }\r\n\r\n}\r\ncontract parents1 is child  {\r\n    function childs ()public pure returns (string memory){\r\n        return \"welcome\";\r\n    }\r\n\r\n}\r\n",
         "file": "parent.sol"
+      }
+    }
+  },
+  "function_overriding.sol": {
+    "__sources__": {
+      "function_overriding.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.28;\r\n\r\ncontract parent{\r\n    \r\n    function message() public pure virtual returns (string memory){\r\n        return \"hello from parent\";\r\n    }\r\n}\r\ncontract child is parent{\r\n\r\n    function message() public pure virtual override returns (string memory){\r\n    return \"hello from parent\";\r\n    }\r\n}\r\ncontract grandchild is child{\r\n\r\n    function message() public pure virtual override returns (string memory){\r\n    return \"hello from grandchild\";\r\n    }\r\n}",
+        "file": "function_overriding.sol"
+      }
+    }
+  },
+  "parent_su.sol": {
+    "__sources__": {
+      "parent_su.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.28;\r\n\r\ncontract parent_su{\r\n\r\n    function greet() public pure virtual returns  (string memory){\r\n        return \"hello\";\r\n    }\r\n}\r\n contract child is parent_su{\r\n\r\n    function greet() public pure override returns (string memory){\r\n      return string .concat(super.greet(), \"aayush\");\r\n    }\r\n }",
+        "file": "parent_su.sol"
+      }
+    }
+  },
+  "guest_book1.sol": {
+    "__sources__": {
+      "guest_book1.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.19;\r\n\r\n/// @title GuestBook\r\n/// @notice A decentralized event guest book. Each wallet can sign in once,\r\n///         storing its address, a display name, and the block timestamp.\r\ncontract GuestBook {\r\n    struct Guest {\r\n        address wallet;\r\n        string name;\r\n        uint256 timestamp;\r\n    }\r\n\r\n    // All registered guests, in the order they signed in.\r\n    Guest[] private guests;\r\n\r\n    // Quick lookup to enforce \"one signature per wallet\".\r\n    mapping(address => bool) public hasSignedIn;\r\n\r\n    // Emitted every time a new guest successfully registers.\r\n    event GuestRegistered(address indexed wallet, string name, uint256 timestamp);\r\n\r\n    /// @notice Register the caller's wallet in the guest book.\r\n    /// @param _name The display name the guest wants to appear under.\r\n    function signGuestBook(string calldata _name) external {\r\n        require(!hasSignedIn[msg.sender], \"This wallet has already signed in\");\r\n        require(bytes(_name).length > 0, \"Name cannot be empty\");\r\n        require(bytes(_name).length <= 64, \"Name is too long\");\r\n\r\n        guests.push(Guest({\r\n            wallet: msg.sender,\r\n            name: _name,\r\n            timestamp: block.timestamp\r\n        }));\r\n\r\n        hasSignedIn[msg.sender] = true;\r\n\r\n        emit GuestRegistered(msg.sender, _name, block.timestamp);\r\n    }\r\n\r\n    /// @notice Return every guest that has ever signed in, oldest first.\r\n    function getGuests() external view returns (Guest[] memory) {\r\n        return guests;\r\n    }\r\n\r\n    /// @notice Convenience helper so the frontend can show \"N people signed in\"\r\n    ///         without pulling the full array.\r\n    function getGuestCount() external view returns (uint256) {\r\n        return guests.length;\r\n    }\r\n}\r\n",
+        "file": "guest_book1.sol"
+      }
+    }
+  },
+  "guest_book.sol": {
+    "__sources__": {
+      "guest_book.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.19;\n\n/// @title GuestBook\n/// @notice A decentralized event guest book. Each wallet can sign in once,\n///         storing its address, a display name, and the block timestamp.\ncontract GuestBook {\n    struct Guest {\n        address wallet;\n        string name;\n        uint256 timestamp;\n    }\n\n    // All registered guests, in the order they signed in.\n    Guest[] private guests;\n\n    // Quick lookup to enforce \"one signature per wallet\".\n    mapping(address => bool) public hasSignedIn;\n\n    // Emitted every time a new guest successfully registers.\n    event GuestRegistered(\n        address indexed wallet,\n        string name,\n        uint256 timestamp\n    );\n\n    /// @notice Register the caller's wallet in the guest book.\n    /// @param _name The display name the guest wants to appear under.\n    function signGuestBook(string calldata _name) external {\n        require(!hasSignedIn[msg.sender], \"This wallet has already signed in\");\n        require(bytes(_name).length > 0, \"Name cannot be empty\");\n        require(bytes(_name).length <= 64, \"Name is too long\");\n\n        guests.push(\n            Guest({wallet: msg.sender, name: _name, timestamp: block.timestamp})\n        );\n\n        hasSignedIn[msg.sender] = true;\n\n        emit GuestRegistered(msg.sender, _name, block.timestamp);\n    }\n\n    /// @notice Return every guest that has ever signed in, oldest first.\n    function getGuests() external view returns (Guest[] memory) {\n        return guests;\n    }\n\n    /// @notice Convenience helper so the frontend can show \"N people signed in\"\n    ///         without pulling the full array.\n    function getGuestCount() external view returns (uint256) {\n        return guests.length;\n    }\n}\n",
+        "file": "guest_book.sol"
+      }
+    }
+  },
+  "payable.sol": {
+    "__sources__": {
+      "payable.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract ReceiveEther {\r\n    function deposit()public payable {\r\n\r\n    }\r\n    function getbalance () public view returns (uint){\r\n        return address(this).balance;\r\n    }\r\n   \r\n} ",
+        "file": "payable.sol"
+      }
+    }
+  },
+  "pr1.sol": {
+    "./pr.sol": "pr.sol",
+    "__sources__": {
+      "pr1.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nimport \"./pr.sol\";\r\n\r\ncontract pr2{\r\n\r\n pr contract2;\r\n\r\n constructor(address pr2_address){\r\n    contract2 =pr( pr2_address);  \r\n    }\r\n\r\n    function add_cash(uint amount) public{\r\n        contract2.add_money(amount);\r\n    }\r\n }\r\n",
+        "file": "pr1.sol"
+      },
+      "pr.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\n contract pr{\r\n   uint public amount;\r\n\r\n    function add_money(uint _amount) public {\r\n     amount += _amount;\r\n    }\r\n\r\n    function get_balance() public view returns(uint) {\r\n    return amount;\r\n    }\r\n }",
+        "file": "pr.sol"
       }
     }
   }
