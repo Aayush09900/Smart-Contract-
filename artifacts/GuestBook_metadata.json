@@ -1,0 +1,164 @@
+{
+	"compiler": {
+		"version": "0.8.34+commit.80d5c536"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "wallet",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "GuestRegistered",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "getGuestCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getGuests",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "wallet",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct GuestBook.Guest[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "hasSignedIn",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "signGuestBook",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"signGuestBook(string)": {
+					"params": {
+						"_name": "The display name the guest wants to appear under."
+					}
+				}
+			},
+			"title": "GuestBook",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getGuestCount()": {
+					"notice": "Convenience helper so the frontend can show \"N people signed in\"         without pulling the full array."
+				},
+				"getGuests()": {
+					"notice": "Return every guest that has ever signed in, oldest first."
+				},
+				"signGuestBook(string)": {
+					"notice": "Register the caller's wallet in the guest book."
+				}
+			},
+			"notice": "A decentralized event guest book. Each wallet can sign in once,         storing its address, a display name, and the block timestamp.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"guest_book.sol": "GuestBook"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"guest_book.sol": {
+			"keccak256": "0x50edfb607c395bb1cbf8de31f9da12b47a28d5e3967b8522121f5f08b86195c8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://483dc087b358f7ff810dcecddbebabca167a92dc30024c1bac591bf221180045",
+				"dweb:/ipfs/QmdLjEEW9AQmqVd5Qa6uCA5HrNWjrUKuPhyUs9ET1W1ZWz"
+			]
+		}
+	},
+	"version": 1
+}
